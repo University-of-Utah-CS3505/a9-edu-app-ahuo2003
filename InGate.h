@@ -4,13 +4,15 @@
 #include "Gate.h"
 
 class InGate : public Gate {
+  InGate();
+
 public:
   /**
-   * @brief InGate The constructor for an InGate Object
-   * @param pos_x The x position of the center
-   * @param pox_y The y position of the center
+   * @brief getPosition
+   * @param pos_x
+   * @param pos_y
    */
-  InGate(int pos_x, int pox_y);
+  void virtual getPosition(int pos_x, int pos_y);
 
   /**
    * @brief draw Draws the InGate Object

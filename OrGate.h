@@ -1,15 +1,18 @@
 #ifndef ORGATE_H
 #define ORGATE_H
+
 #include "Gate.h"
 
 class OrGate : public Gate {
+  OrGate();
+
 public:
   /**
-   * @brief OrGate
+   * @brief getPosition
    * @param pos_x
    * @param pos_y
    */
-  OrGate(int pos_x, int pos_y);
+  void virtual getPosition(int pos_x, int pos_y);
 
   /**
    * @brief draw

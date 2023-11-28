@@ -4,17 +4,18 @@
 #include "Gate.h"
 
 class AndGate : public Gate {
+  AndGate();
+
 public:
   /**
-   * @brief AndGate
+   * @brief getPosition
    * @param pos_x
    * @param pos_y
    */
-  AndGate(int pos_x, int pos_y);
+  void virtual getPosition(int pos_x, int pos_y);
 
   /**
-   * @brief draw
-   * @param image
+   * @brief draw Draws the InGate Object
    */
   void virtual draw(QImage &image);
 };
