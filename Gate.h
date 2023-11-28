@@ -2,18 +2,23 @@
 #define GATE_H
 
 #include <QColor>
-#include <QPainter>
 #include <QImage>
+#include <QPainter>
 #include <QPoint>
 
-class Gate{
+class Gate {
 protected:
-    void virtual draw(QImage &image);
-    int pos_x;
-    int pos_y;
-    bool truth;
-    QColor cableColor;
-    QPainter painter;
+  /**
+   * @brief draw
+   * @param image
+   */
+  void virtual draw(QImage &image);
+
+  int pos_x;
+  int pos_y;
+  bool truth;
+  QColor cableColor;
+  QPainter painter;
 };
 
 #endif // GATE_H
