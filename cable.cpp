@@ -10,13 +10,17 @@ Cable::Cable(QPoint startPos, QColor cableColor)
     path.append(startPos);
 
     cableEndPos = &(path.at(0));
-    scaleFactor = 8; // Default scaleFactor
+    scaleFactor = 1; // Default scaleFactor
     canDraw = false;
 }
 
 void Cable::mousePressed(QImage &image, const QPoint &mouseLocation)
 {
-    if ((mouseLocation.x() == cableEndPos->x()) && mouseLocation.y() == cableEndPos->y()){
+    //Convert the mouse coordinates into image coordinates.
+    QPoint mouseLocationInImage = mapToImageCoordinates(mouseLocation, scaleFactor);
+
+    //If the user clicked at the end of the cable, allow them to draw.
+    if ((mouseLocationInImage.x() == cableEndPos->x()) && mouseLocationInImage.y() == cableEndPos->y()){
         // Start the Painter
         painter.begin(&image);
 
