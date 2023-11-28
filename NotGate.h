@@ -3,11 +3,20 @@
 
 #include "Gate.h"
 
-class NotGate : public Gate
-{
+class NotGate : public Gate {
 public:
-    NotGate(int pos_x, int pos_y);
-    void virtual draw();
+  /**
+   * @brief NotGate
+   * @param pos_x
+   * @param pos_y
+   */
+  NotGate(int pos_x, int pos_y);
+
+  /**
+   * @brief draw
+   * @param image
+   */
+  void virtual draw(QImage &image);
 };
 
 #endif // NOTGATE_H
