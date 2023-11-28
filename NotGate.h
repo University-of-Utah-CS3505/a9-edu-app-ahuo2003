@@ -6,7 +6,8 @@
 class NotGate : public Gate
 {
 public:
-    NotGate();
+    NotGate(int pos_x, int pos_y);
+    void virtual draw();
 };
 
 #endif // NOTGATE_H

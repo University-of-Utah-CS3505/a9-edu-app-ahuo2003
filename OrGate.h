@@ -5,7 +5,8 @@
 class OrGate : public Gate
 {
 public:
-    OrGate();
+    OrGate(int pos_x, int pos_y);
+    void virtual draw();
 };
 
 #endif // ORGATE_H

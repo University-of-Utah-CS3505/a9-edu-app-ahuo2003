@@ -5,7 +5,8 @@
 class AndGate
 {
 public:
-    AndGate();
+    AndGate(int pos_x, int pos_y);
+    void virtual draw();
 };
 
 #endif // ANDGATE_H

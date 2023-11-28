@@ -6,7 +6,8 @@
 class OutGate : public Gate
 {
 public:
-    OutGate();
+    OutGate(int pos_x, int pos_y);
+    void virtual draw();
 };
 
 #endif // OUTGATE_H
