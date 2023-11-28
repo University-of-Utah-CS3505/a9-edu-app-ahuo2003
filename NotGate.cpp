@@ -6,4 +6,6 @@ void NotGate::getPosition(int pos_x, int pos_y) {
   this->truth = false;
 }
 
-void NotGate::draw(QImage &image) {}
+void NotGate::draw(QImage &image) {
+
+}

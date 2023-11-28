@@ -6,4 +6,6 @@ void OrGate::getPosition(int pos_x, int pos_y) {
   this->truth = false;
 }
 
-void OrGate::draw(QImage &image) {}
+void OrGate::draw(QImage &image) {
+
+}
