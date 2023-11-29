@@ -280,10 +280,10 @@
    <widget class="Canvas" name="circuitCanvas">
     <property name="geometry">
      <rect>
-      <x>130</x>
+      <x>110</x>
       <y>80</y>
-      <width>511</width>
-      <height>371</height>
+      <width>571</width>
+      <height>401</height>
      </rect>
     </property>
     <property name="text">
@@ -293,10 +293,10 @@
    <widget class="QPushButton" name="testStart">
     <property name="geometry">
      <rect>
-      <x>130</x>
-      <y>90</y>
-      <width>661</width>
-      <height>191</height>
+      <x>0</x>
+      <y>0</y>
+      <width>801</width>
+      <height>551</height>
      </rect>
     </property>
     <property name="font">
