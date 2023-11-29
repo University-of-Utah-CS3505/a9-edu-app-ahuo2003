@@ -7,6 +7,7 @@ class AndGate : public Gate {
   AndGate();
 
 public:
+  QList<QPoint> andGatePixels;
   /**
    * @brief getPosition
    * @param pos_x
