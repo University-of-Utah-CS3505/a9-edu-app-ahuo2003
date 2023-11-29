@@ -56,6 +56,7 @@ SOURCES += \
     Box2D/Dynamics/b2WorldCallbacks.cpp \
     Box2D/Rope/b2Rope.cpp \
     SceneWidget.cpp \
+    cable.cpp \
     main.cpp \
     MainWindow.cpp
 
@@ -108,7 +109,8 @@ HEADERS += \
     Box2D/Dynamics/b2WorldCallbacks.h \
     Box2D/Rope/b2Rope.h \
     MainWindow.h \
-    SceneWidget.h
+    SceneWidget.h \
+    cable.h
 
 FORMS += \
     MainWindow.ui
