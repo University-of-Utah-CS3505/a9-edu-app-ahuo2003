@@ -30,12 +30,6 @@ public slots:
    */
     virtual void redrawCanvas(QImage frame);
 
-    /**
-   * @brief updateCanvasScaleFactor updates the scaleFactor variable.
-   * @param scaleFactor the new scaleFactor variable.
-   */
-    void updateCanvasScaleFactor(int scaleFactor);
-
 protected:
     /**
    * @brief mousePressEvent a method that executes when the user mouse is
