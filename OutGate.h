@@ -7,6 +7,7 @@ class OutGate : public Gate {
   OutGate();
 
 public:
+  QList<QPoint> outGatePixels;
   /**
    * @brief getPosition
    * @param pos_x

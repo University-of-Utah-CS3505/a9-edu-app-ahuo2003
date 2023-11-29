@@ -7,6 +7,7 @@ class InGate : public Gate {
   InGate();
 
 public:
+  QList<QPoint> inGatePixels;
   /**
    * @brief getPosition
    * @param pos_x

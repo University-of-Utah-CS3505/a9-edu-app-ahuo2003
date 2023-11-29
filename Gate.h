@@ -5,6 +5,7 @@
 #include <QImage>
 #include <QPainter>
 #include <QPoint>
+#include <QList>
 
 class Gate {
 protected:
