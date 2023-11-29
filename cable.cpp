@@ -20,7 +20,7 @@ void Cable::mousePressed(QImage &image, const QPoint &mouseLocation)
     QPoint mouseLocationInImage = mapToImageCoordinates(mouseLocation, scaleFactor);
 
     //If the user clicked at the end of the cable, allow them to draw.
-    if ((mouseLocationInImage.x() == cableEndPos->x()) && mouseLocationInImage.y() == cableEndPos->y()){
+    if ((mouseLocationInImage.x() == cableEndPos->x()) && (mouseLocationInImage.y() == cableEndPos->y())){
         // Start the Painter
         painter.begin(&image);
 
