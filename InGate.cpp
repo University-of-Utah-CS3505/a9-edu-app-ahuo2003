@@ -25,7 +25,7 @@ void InGate::draw(QImage &image) {
   painter.setPen(cursorPen);
   painter.drawPoint(center);
 
-  QPoint wire(pos_x + 2, pos_y);
+  QPoint wire(center.x() + 2, center.y());
   cursorPen.setColor(Qt::yellow);
   painter.setPen(cursorPen);
   painter.drawPoint(wire);

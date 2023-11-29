@@ -31,17 +31,17 @@ void AndGate::draw(QImage &image) {
   }
 
   cursorPen.setColor(Qt::yellow);
-  QPoint outputWire(pos_x + 3, pos_y);
+  QPoint outputWire(center.x() + 3, center.y());
   painter.setPen(cursorPen);
   painter.drawPoint(outputWire);
   andGatePixels.append(outputWire);
 
-  QPoint inputWire1(pos_x - 2, pos_y - 1);
+  QPoint inputWire1(center.x() - 2, center.y() - 1);
   painter.setPen(cursorPen);
   painter.drawPoint(inputWire1);
   andGatePixels.append(inputWire1);
 
-  QPoint inputWire2(pos_x - 2, pos_y + 1);
+  QPoint inputWire2(center.x() - 2, center.y() + 1);
   painter.setPen(cursorPen);
   painter.drawPoint(inputWire2);
   andGatePixels.append(inputWire2);
