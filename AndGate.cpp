@@ -14,17 +14,17 @@ void AndGate::draw(QImage &image) {
   painter.setPen(cursorPen);
 
   QPoint center(pos_x, pos_y);
-  for (int i = center.y() - 2; i <= center.y() + 2 + 1; i++) {
+  for (int i = center.y() - 2; i <= center.y() + 2; i++) {
     for (int j = center.x() - 1; j <= center.x() + 1; j++) {
-      QPoint andGate(i, j);
+      QPoint andGate(j, i);
       painter.drawPoint(andGate);
       andGatePixels.append(andGate);
     }
   }
 
-  for (int i = center.y() - 1; i <= center.y() + 1 + 1; i++) {
+  for (int i = center.y() - 1; i <= center.y() + 1; i++) {
     for (int j = center.x() + 1; j <= center.x() + 2; j++) {
-      QPoint andGate(i, j);
+      QPoint andGate(j, i);
       painter.drawPoint(andGate);
       andGatePixels.append(andGate);
     }

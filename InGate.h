@@ -2,7 +2,7 @@
 #define INGATE_H
 
 #include "Gate.h"
-#include <QMouseEvent>>
+#include <QMouseEvent>
 
 class InGate : public Gate {
   InGate();

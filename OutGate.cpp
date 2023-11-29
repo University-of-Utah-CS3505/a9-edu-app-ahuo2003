@@ -16,7 +16,7 @@ void OutGate::draw(QImage &image) {
   QPoint center(pos_x, pos_y);
   for (int i = center.y() - 1; i <= center.y() + 1; i++) {
     for (int j = center.x() - 1; j <= center.x() + 1; j++) {
-      QPoint border(i, j);
+      QPoint border(j, i);
       painter.drawPoint(border);
       outGatePixels.append(border);
     }
