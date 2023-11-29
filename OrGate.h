@@ -7,6 +7,7 @@ class OrGate : public Gate {
   OrGate();
 
 public:
+  QList<QPoint> orGatePixels;
   /**
    * @brief getPosition
    * @param pos_x

@@ -13,9 +13,9 @@ void OutGate::draw(QImage &image) {
   cursorPen.setColor(Qt::black);
   painter.setPen(cursorPen);
 
-  QPoint point(pos_x, pos_y);
-  for (int i = point.y() - 1; i <= point.y() + 1; i++) {
-    for (int j = point.x() - 1; j <= point.x() + 1; j++) {
+  QPoint center(pos_x, pos_y);
+  for (int i = center.y() - 1; i <= center.y() + 1; i++) {
+    for (int j = center.x() - 1; j <= center.x() + 1; j++) {
       QPoint border(i, j);
       painter.drawPoint(border);
       outGatePixels.append(border);
@@ -23,11 +23,13 @@ void OutGate::draw(QImage &image) {
   }
   cursorPen.setColor(Qt::red);
   painter.setPen(cursorPen);
-  painter.drawPoint(point);
+  painter.drawPoint(center);
 
   QPoint wire(pos_x - 2, pos_y);
-  cursorPen.setColor(Qt::green);
+  cursorPen.setColor(Qt::yellow);
   painter.setPen(cursorPen);
   painter.drawPoint(wire);
   outGatePixels.append(wire);
+
+  this->painter.end();
 }
