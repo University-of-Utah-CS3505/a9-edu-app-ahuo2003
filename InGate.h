@@ -2,6 +2,7 @@
 #define INGATE_H
 
 #include "Gate.h"
+#include <QMouseEvent>>
 
 class InGate : public Gate {
   InGate();
@@ -19,6 +20,8 @@ public:
    * @brief draw Draws the InGate Object
    */
   void virtual draw(QImage &image);
+
+  void mousePressed(QMouseEvent *event, QPoint center);
 };
 
 #endif // INGATE_H
