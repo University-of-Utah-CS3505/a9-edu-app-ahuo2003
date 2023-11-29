@@ -7,6 +7,7 @@ class NotGate : public Gate {
   NotGate();
 
 public:
+  QList<QPoint> notGatePixels;
   /**
    * @brief getPosition
    * @param pos_x
