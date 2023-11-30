@@ -43,8 +43,11 @@ public:
     void changeScaleFactor(int newScaleFactor);
 
 
+
+    QPoint *getCableEndPos() const;
+
 protected:
-    const QPoint* cableEndPos;
+    QPoint* cableEndPos;
     QColor cableColor;
     QColor cableEndPosColor;
     QList<QPoint> path;
