@@ -6,6 +6,7 @@
 #include <QPainter>
 #include <QPoint>
 #include <QList>
+#include <Model.h>
 
 class Gate {
 protected:

@@ -58,6 +58,7 @@ SOURCES += \
     Box2D/Rope/b2Rope.cpp \
     Canvas.cpp \
     InGate.cpp \
+    Model.cpp \
     NotGate.cpp \
     OrGate.cpp \
     OutGate.cpp \
@@ -117,6 +118,7 @@ HEADERS += \
     Box2D/Rope/b2Rope.h \
     Canvas.h \
     MainWindow.h \
+    Model.h \
     SceneWidget.h \
     cable.h \
     Gate.h \

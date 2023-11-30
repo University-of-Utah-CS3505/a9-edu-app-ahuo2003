@@ -9,10 +9,12 @@ Cable::Cable(QPoint startPos, QColor cableColor)
     //Append the starting position to the path list
     path.append(startPos);
 
-    cableEndPos = &(path.at(0));
-    scaleFactor = 1; // Default scaleFactor
+    cableEndPos = &(path[0]);
+    scaleFactor = 16; // Default scaleFactor
     canDraw = false;
 }
+
+
 
 void Cable::mousePressed(QImage &image, const QPoint &mouseLocation)
 {
@@ -37,7 +39,7 @@ void Cable::mousePressed(QImage &image, const QPoint &mouseLocation)
 void Cable::mouseReleased(QImage &image, const QPoint &mouseLocation)
 {
     //Set the end of the cable to the last item in the path list, and set its pixel color in the canvas to a darker version.
-    cableEndPos = &(path.at(path.size() - 1));
+    cableEndPos = &(path[path.size() - 1]);
     image.setPixelColor(mapToImageCoordinates(mouseLocation, scaleFactor), cableEndPosColor);
 
     //Stop the painter and remove the ability to draw
@@ -87,6 +89,12 @@ void Cable::appendToPath(const QPoint &startPoint, const QPoint &endPoint, int &
 void Cable::changeScaleFactor(int newScaleFactor){
     scaleFactor = newScaleFactor;
 }
+
+QPoint *Cable::getCableEndPos() const
+{
+    return cableEndPos;
+}
+
 
 QPoint Cable::mapToImageCoordinates(const QPoint &point, int scaleFactor){
     return QPoint(point.x() / scaleFactor, point.y() / scaleFactor);

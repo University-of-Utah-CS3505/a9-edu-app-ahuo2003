@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <Model.h>
 #include "Canvas.h"
 
 QT_BEGIN_NAMESPACE
@@ -13,10 +14,10 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    MainWindow(Canvas &canvas, QWidget *parent = nullptr);
+    MainWindow(Canvas &canvas, Model &model, QWidget *parent = nullptr);
     ~MainWindow();
 
-private slots:
+public slots:
     void on_testStart_clicked();
 
     void on_andDemo_clicked();
