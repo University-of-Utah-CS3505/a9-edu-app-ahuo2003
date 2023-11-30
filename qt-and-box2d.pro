@@ -118,14 +118,13 @@ HEADERS += \
     Canvas.h \
     MainWindow.h \
     SceneWidget.h \
-    cable.h
+    cable.h \
     Gate.h \
     InGate.h \
     MainWindow.h \
     NotGate.h \
     OrGate.h \
     OutGate.h \
-    SceneWidget.h
 
 FORMS += \
     MainWindow.ui
