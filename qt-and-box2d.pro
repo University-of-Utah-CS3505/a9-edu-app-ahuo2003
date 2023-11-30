@@ -9,6 +9,7 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    AndGate.cpp \
     Box2D/Collision/Shapes/b2ChainShape.cpp \
     Box2D/Collision/Shapes/b2CircleShape.cpp \
     Box2D/Collision/Shapes/b2EdgeShape.cpp \
@@ -56,12 +57,17 @@ SOURCES += \
     Box2D/Dynamics/b2WorldCallbacks.cpp \
     Box2D/Rope/b2Rope.cpp \
     Canvas.cpp \
+    InGate.cpp \
+    NotGate.cpp \
+    OrGate.cpp \
+    OutGate.cpp \
     SceneWidget.cpp \
     cable.cpp \
     main.cpp \
     MainWindow.cpp
 
 HEADERS += \
+    AndGate.h \
     Box2D/Box2D.h \
     Box2D/Collision/Shapes/b2ChainShape.h \
     Box2D/Collision/Shapes/b2CircleShape.h \
@@ -113,6 +119,13 @@ HEADERS += \
     MainWindow.h \
     SceneWidget.h \
     cable.h
+    Gate.h \
+    InGate.h \
+    MainWindow.h \
+    NotGate.h \
+    OrGate.h \
+    OutGate.h \
+    SceneWidget.h
 
 FORMS += \
     MainWindow.ui
