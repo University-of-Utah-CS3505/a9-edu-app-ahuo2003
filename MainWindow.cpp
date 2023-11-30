@@ -7,7 +7,7 @@ MainWindow::MainWindow(Canvas &canvas, QWidget *parent)
 {
     ui->setupUi(this);
     ui->widget->show();
-    ui->testStart->
+    //ui->testStart->
 
     // Default window size of 1280x720 (non-resizable)
     this->setFixedSize(1280, 720);
