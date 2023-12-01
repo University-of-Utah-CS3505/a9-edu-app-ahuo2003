@@ -7,6 +7,12 @@ Model::Model(QObject *parent)
     Cable* c = new Cable(QPoint(0,0), Qt::red);
     cables.append(c);
     currCable = c;
+    scaleFactor = 16; // Default scaleFactor
+}
+
+void Model::loadLevel(int levelNum)
+{
+    currLevel.loadLevelData(levelNum);
 }
 
 void Model::mouseEvent(QMouseEvent *event)
@@ -18,18 +24,22 @@ void Model::mouseEvent(QMouseEvent *event)
 //            if(event->pos() == *(c->getCableEndPos()))
 //                currCable = c;
 //        }
-        this->currCable->mousePressed(*levelView, event->pos());
+        this->currCable->mousePressed(*levelView, mapToImageCoordinates(event->pos(), scaleFactor));
     }
 
     if(event->type() == QEvent::MouseButtonRelease){
-        this->currCable->mouseReleased(*levelView, event->pos());
+        this->currCable->mouseReleased(*levelView, mapToImageCoordinates(event->pos(), scaleFactor));
     }
 
     if(event->type() == QEvent::MouseMove){
-        this->currCable->mouseMoved(event->pos());
+        this->currCable->mouseMoved(mapToImageCoordinates(event->pos(), scaleFactor));
     }
 
     emit invalidate(*levelView);
 
+}
+
+QPoint Model::mapToImageCoordinates(const QPoint &point, int scaleFactor){
+    return QPoint(point.x() / scaleFactor, point.y() / scaleFactor);
 }
 
