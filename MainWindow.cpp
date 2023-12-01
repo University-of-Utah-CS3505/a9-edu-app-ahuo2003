@@ -18,6 +18,11 @@ MainWindow::MainWindow(Canvas &canvas, QWidget *parent)
     // Draw the canvas
     initCanvas();
 
+    QPixmap pixmap(":/title.png");
+    QIcon ButtonIcon(pixmap);
+    ui->testStart->setIcon(ButtonIcon);
+    ui->testStart->setIconSize(pixmap.rect().size());
+
     // Canvas-to-Tools connection
     //connect(ui->drawingCanvas, &Canvas::mouseEventSignal, &model, &SpriteModel::useTool);
     //connect(&model, &SpriteModel::updateFrame, ui->drawingCanvas, &Canvas::redrawCanvas);

@@ -5,7 +5,7 @@
 // General Tool Declaration
 Canvas::Canvas(QWidget *parent) : QLabel(parent) {
     // Base scale factor for 8x8 canvas
-    scaleFactor = 16;
+    scaleFactor = 20;
 }
 
 void Canvas::redrawCanvas(QImage frame) {

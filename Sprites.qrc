@@ -1,5 +1,8 @@
 <RCC>
     <qresource prefix="/sprites">
         <file>alien1.png</file>
+        <file>title.png</file>
+        <file>pixelBoard.jpg</file>
+        <file>dynamixHue.jpg</file>
     </qresource>
 </RCC>
