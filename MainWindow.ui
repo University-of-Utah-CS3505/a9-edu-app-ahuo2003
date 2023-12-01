@@ -442,6 +442,9 @@
     </widget>
    </widget>
    <widget class="Canvas" name="circuitCanvas">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>299</x>

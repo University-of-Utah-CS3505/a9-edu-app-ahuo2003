@@ -9,18 +9,17 @@ Cable::Cable(QPoint startPos, QColor cableColor)
     //Append the starting position to the path list
     path.append(startPos);
 
-    cableEndPos = &(path.at(0));
-    scaleFactor = 1; // Default scaleFactor
+    cableEndPos = &(path[0]);
     canDraw = false;
 }
 
+
+
 void Cable::mousePressed(QImage &image, const QPoint &mouseLocation)
 {
-    //Convert the mouse coordinates into image coordinates.
-    QPoint mouseLocationInImage = mapToImageCoordinates(mouseLocation, scaleFactor);
 
     //If the user clicked at the end of the cable, allow them to draw.
-    if ((mouseLocationInImage.x() == cableEndPos->x()) && (mouseLocationInImage.y() == cableEndPos->y())){
+    if ((mouseLocation.x() == cableEndPos->x()) && (mouseLocation.y() == cableEndPos->y())){
         // Start the Painter
         painter.begin(&image);
 
@@ -37,8 +36,8 @@ void Cable::mousePressed(QImage &image, const QPoint &mouseLocation)
 void Cable::mouseReleased(QImage &image, const QPoint &mouseLocation)
 {
     //Set the end of the cable to the last item in the path list, and set its pixel color in the canvas to a darker version.
-    cableEndPos = &(path.at(path.size() - 1));
-    image.setPixelColor(mapToImageCoordinates(mouseLocation, scaleFactor), cableEndPosColor);
+    cableEndPos = &(path[path.size() - 1]);
+    image.setPixelColor(mouseLocation, cableEndPosColor);
 
     //Stop the painter and remove the ability to draw
     canDraw = false;
@@ -47,20 +46,17 @@ void Cable::mouseReleased(QImage &image, const QPoint &mouseLocation)
 
 void Cable::mouseMoved(const QPoint &mouseLocation)
 {
-    //Convert mouse coordinates into pixel coordinates.
-    QPoint startPoint = mapToImageCoordinates(mouseLocation, scaleFactor);
-    QPoint endPoint = mapToImageCoordinates(mouseLocation, scaleFactor);
 
     //If the user starts at a drawable pixel, let it draw
     if (canDraw){
         //Calculate change in y and x, and determine whether the user is drawing a straight line.
-        int dx = startPoint.x() - endPoint.x();
-        int dy = startPoint.y() - endPoint.y();
+        int dx = mouseLocation.x() - mouseLocation.x();
+        int dy = mouseLocation.y() - mouseLocation.y();
 
         //If the user is drawing in a straight line, draw the line and record the coordinates.
         if (dx == 0 || dy == 0){
-            drawLine(startPoint, endPoint);
-            appendToPath(startPoint, endPoint, dy, dx);
+            drawLine(mouseLocation, mouseLocation);
+            appendToPath(mouseLocation, mouseLocation, dy, dx);
         }
     }
 }
@@ -88,6 +84,7 @@ void Cable::changeScaleFactor(int newScaleFactor){
     scaleFactor = newScaleFactor;
 }
 
-QPoint Cable::mapToImageCoordinates(const QPoint &point, int scaleFactor){
-    return QPoint(point.x() / scaleFactor, point.y() / scaleFactor);
+QPoint *Cable::getCableEndPos() const
+{
+    return cableEndPos;
 }

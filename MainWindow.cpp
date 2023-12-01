@@ -1,7 +1,7 @@
 #include "MainWindow.h"
-#include "ui_MainWindow.h"
+#include "ui_mainwindow.h"
 
-MainWindow::MainWindow(Canvas &canvas, QWidget *parent)
+MainWindow::MainWindow(Canvas &canvas, Model &model, QWidget *parent)
     : QMainWindow(parent),
       ui(new Ui::MainWindow)
 {
@@ -27,6 +27,8 @@ MainWindow::MainWindow(Canvas &canvas, QWidget *parent)
     //connect(ui->drawingCanvas, &Canvas::mouseEventSignal, &model, &SpriteModel::useTool);
     //connect(&model, &SpriteModel::updateFrame, ui->drawingCanvas, &Canvas::redrawCanvas);
     //connect(&model, &SpriteModel::updateScaleFactor, ui->drawingCanvas, &Canvas::updateCanvasScaleFactor);
+    connect(ui->circuitCanvas, &Canvas::mouseEventSignal, &model, &Model::mouseEvent);
+    connect(&model, &Model::invalidate, ui->circuitCanvas, &Canvas::redrawCanvas);
 
 }
 

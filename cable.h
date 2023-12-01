@@ -43,8 +43,11 @@ public:
     void changeScaleFactor(int newScaleFactor);
 
 
+
+    QPoint *getCableEndPos() const;
+
 protected:
-    const QPoint* cableEndPos;
+    QPoint* cableEndPos;
     QColor cableColor;
     QColor cableEndPosColor;
     QList<QPoint> path;
@@ -68,14 +71,6 @@ private:
      * @param dx change in x between the 2 points.
      */
     void appendToPath(const QPoint& startPoint, const QPoint& endPoint, int& dy, int& dx);
-
-    /**
-     * @brief mapToImageCoordinates converts mouse coordinates to the model's image coordinates.
-     * @param point the point to be converted.
-     * @param scaleFactor factor to scale the point to the model's image coordinates.
-     * @return a point in the model's image.
-     */
-    QPoint mapToImageCoordinates(const QPoint& point, int scaleFactor);
 };
 
 #endif // CABLE_H
