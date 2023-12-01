@@ -6,23 +6,28 @@
 #include <QPainter>
 #include <QPoint>
 #include <QList>
-#include <Model.h>
+
+enum class GateType {AND, OR, NOT, INPUT, OUTPUT};
 
 class Gate {
+public:
+    Gate(int x = 0, int y = 0, bool initialState = false);
+    virtual ~Gate();
+
+    //Setters
+    void setPos(int x, int y);
+    void setTruthValue(bool val);
+    void setCableColor(const QColor &color);
+
+    // Getters
+    void getPos(int &x, int &y) const;
+    bool getTruthValue() const;
+    QColor getCableColor() const;
+
+    virtual GateType getType() const = 0; //To be implemented in child classes
+
+    virtual void draw(QImage &image);
 protected:
-  /**
-   * @brief getPosition
-   * @param pos_x
-   * @param pos_y
-   */
-  void virtual getPosition(int pos_x, int pos_y);
-
-  /**
-   * @brief draw
-   * @param image
-   */
-  void virtual draw(QImage &image);
-
   int pos_x;
   int pos_y;
   bool truth;
