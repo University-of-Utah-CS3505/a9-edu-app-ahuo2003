@@ -4,16 +4,11 @@
 #include "Gate.h"
 
 class NotGate : public Gate {
-  NotGate();
+  NotGate() : Gate() { type = GateType::NOT; }
 
 public:
   QList<QPoint> notGatePixels;
-  /**
-   * @brief getPosition
-   * @param pos_x
-   * @param pos_y
-   */
-  void virtual getPosition(int pos_x, int pos_y);
+  virtual GateType getType() const;
 
   /**
    * @brief draw

@@ -4,16 +4,12 @@
 #include "Gate.h"
 
 class OutGate : public Gate {
-  OutGate();
+  OutGate() : Gate() { type = GateType::OUTPUT; }
 
 public:
   QList<QPoint> outGatePixels;
-  /**
-   * @brief getPosition
-   * @param pos_x
-   * @param pos_y
-   */
-  void virtual getPosition(int pos_x, int pos_y);
+
+  virtual GateType getType() const;
 
   /**
    * @brief draw

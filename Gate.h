@@ -20,7 +20,7 @@ public:
     void setCableColor(const QColor &color);
 
     // Getters
-    void getPos(int &x, int &y) const;
+    QPoint getPos() const;
     bool getTruthValue() const;
     QColor getCableColor() const;
 
@@ -33,6 +33,7 @@ protected:
   bool truth;
   QColor cableColor;
   QPainter painter;
+  GateType type;
 };
 
 #endif // GATE_H

@@ -4,16 +4,11 @@
 #include "Gate.h"
 
 class OrGate : public Gate {
-  OrGate();
+  OrGate() : Gate() { type = GateType::OR; }
 
 public:
   QList<QPoint> orGatePixels;
-  /**
-   * @brief getPosition
-   * @param pos_x
-   * @param pos_y
-   */
-  void virtual getPosition(int pos_x, int pos_y);
+  virtual GateType getType() const;
 
   /**
    * @brief draw
