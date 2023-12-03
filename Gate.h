@@ -11,7 +11,7 @@ enum class GateType {AND, OR, NOT, INPUT, OUTPUT};
 
 class Gate {
 public:
-    Gate(int x = 0, int y = 0, bool initialState = false);
+    Gate(int x = 0, int y = 0);
     virtual ~Gate();
 
     //Setters
@@ -24,7 +24,7 @@ public:
     bool getTruthValue() const;
     QColor getCableColor() const;
 
-    virtual GateType getType() const = 0; //To be implemented in child classes
+    virtual GateType getType() const = 0;
 
     virtual void draw(QImage &image);
 protected:
