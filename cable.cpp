@@ -56,8 +56,6 @@ void Cable::mouseMoved(const QPoint &mouseLocation)
         if (!moveHorizontal && !moveVertical){
             int dx = cableEndPos->x() - mouseLocation.x();
             int dy = cableEndPos->y() - mouseLocation.y();
-            qDebug() << dx;
-            qDebug() << dy;
             if (*cableEndPos != mouseLocation) {
                 if (dx == 0){
                     moveVertical = true;
@@ -67,7 +65,7 @@ void Cable::mouseMoved(const QPoint &mouseLocation)
                 }
             }
         }
-
+        //TODO: Add check to only be able to draw within boundaries
         drawLine(*cableEndPos, mouseLocation);
         appendToPath(*cableEndPos, mouseLocation);
     }
@@ -93,17 +91,15 @@ void Cable::appendToPath(const QPoint &startPoint, const QPoint &endPoint){
     int step = 1;
     if (moveVertical){
         if (endPoint.y() < startPoint.y()) step = -1;
-        for (int y = startPoint.y(); y != endPoint.y(); y+=step){
+        for (int y = startPoint.y(); y != endPoint.y() + step; y+=step){
             path.append(QPoint(startPoint.x(), y));
         }
-        path.append(QPoint(startPoint.x(), endPoint.y()));
     }
     else if (moveHorizontal){
         if (endPoint.x() < startPoint.x()) step = -1;
-        for (int x = startPoint.x(); x != endPoint.x(); x+=step){
+        for (int x = startPoint.x(); x != endPoint.x() + step; x+=step){
             path.append(QPoint(x, startPoint.y()));
         }
-        path.append(QPoint(endPoint.x(), startPoint.y()));
     }
 }
 
