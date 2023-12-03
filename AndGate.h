@@ -4,11 +4,10 @@
 #include "Gate.h"
 
 class AndGate : public Gate {
-    AndGate() : Gate(){
-        type = GateType::AND;
-    }
+
 
 public:
+  AndGate(int x, int y);
   QList<QPoint> andGatePixels;
   /**
    * @brief draw Draws the InGate Object

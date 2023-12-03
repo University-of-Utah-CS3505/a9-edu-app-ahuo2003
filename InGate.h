@@ -5,11 +5,9 @@
 #include <QMouseEvent>
 
 class InGate : public Gate {
-    InGate() : Gate(){
-        type = GateType::INPUT;
-    }
 
 public:
+  InGate(int x, int y);
   QList<QPoint> inGatePixels;
 
   /**

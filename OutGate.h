@@ -4,9 +4,9 @@
 #include "Gate.h"
 
 class OutGate : public Gate {
-  OutGate() : Gate() { type = GateType::OUTPUT; }
 
 public:
+  OutGate(int x, int y);
   QList<QPoint> outGatePixels;
 
   virtual GateType getType() const;

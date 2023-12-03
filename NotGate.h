@@ -4,9 +4,9 @@
 #include "Gate.h"
 
 class NotGate : public Gate {
-  NotGate() : Gate() { type = GateType::NOT; }
 
 public:
+  NotGate(int x, int y);
   QList<QPoint> notGatePixels;
   virtual GateType getType() const;
 

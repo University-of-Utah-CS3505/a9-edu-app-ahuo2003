@@ -57,6 +57,7 @@ SOURCES += \
     Box2D/Dynamics/b2WorldCallbacks.cpp \
     Box2D/Rope/b2Rope.cpp \
     Canvas.cpp \
+    Gate.cpp \
     InGate.cpp \
     Level.cpp \
     Model.cpp \

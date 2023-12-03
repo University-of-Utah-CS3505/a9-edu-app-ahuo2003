@@ -4,9 +4,9 @@
 #include "Gate.h"
 
 class OrGate : public Gate {
-  OrGate() : Gate() { type = GateType::OR; }
 
 public:
+  OrGate(int x, int y);
   QList<QPoint> orGatePixels;
   virtual GateType getType() const;
 
