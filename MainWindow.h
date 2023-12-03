@@ -19,8 +19,9 @@ public:
 
 public slots:
     void on_testStart_clicked();
-
     void on_andDemo_clicked();
+
+signals:
 
 private:
     Ui::MainWindow *ui;

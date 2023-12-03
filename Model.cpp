@@ -4,10 +4,11 @@ Model::Model(QObject *parent)
     : QObject{parent}
 {
     levelView = new QImage(32,32, QImage::Format_ARGB32);
+    levelView->fill(Qt::transparent);
     Cable* c = new Cable(QPoint(0,0), Qt::red);
     cables.append(c);
     currCable = c;
-    scaleFactor = 16; // Default scaleFactor
+    scaleFactor = 20; // Default scaleFactor
 }
 
 void Model::loadLevel(int levelNum)
@@ -37,6 +38,12 @@ void Model::mouseEvent(QMouseEvent *event)
 
     emit invalidate(*levelView);
 
+}
+
+void Model::setAndLevel()
+{
+    loadLevel(1);
+    currLevel.renderLevel(*levelView);
 }
 
 QPoint Model::mapToImageCoordinates(const QPoint &point, int scaleFactor){
