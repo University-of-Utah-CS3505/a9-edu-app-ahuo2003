@@ -27,7 +27,7 @@ public:
      * @brief mouseReleased stops extending the cable when the user releases the mouse button that was pressed.
      * @param mousePos position of the mouse.
      */
-    void mouseReleased(QImage&, const QPoint& mousePos);
+    void mouseReleased(QImage&);
 
     /**
      * @brief mouseMoved lets the user draw in the image if the mouse is pressed and moving, and
@@ -52,6 +52,8 @@ protected:
     QColor cableEndPosColor;
     QList<QPoint> path;
     QPainter painter;
+    bool moveHorizontal;
+    bool moveVertical;
     bool canDraw;
     int scaleFactor;
 
@@ -70,7 +72,7 @@ private:
      * @param dy change in y between the 2 points.
      * @param dx change in x between the 2 points.
      */
-    void appendToPath(const QPoint& startPoint, const QPoint& endPoint, int& dy, int& dx);
+    void appendToPath(const QPoint& startPoint, const QPoint& endPoint);
 };
 
 #endif // CABLE_H

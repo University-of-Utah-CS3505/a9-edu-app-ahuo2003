@@ -29,7 +29,7 @@ void Model::mouseEvent(QMouseEvent *event)
     }
 
     if(event->type() == QEvent::MouseButtonRelease){
-        this->currCable->mouseReleased(*levelView, mapToImageCoordinates(event->pos(), scaleFactor));
+        this->currCable->mouseReleased(*levelView);
     }
 
     if(event->type() == QEvent::MouseMove){
