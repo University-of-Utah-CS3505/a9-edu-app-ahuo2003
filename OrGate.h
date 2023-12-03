@@ -7,14 +7,12 @@ class OrGate : public Gate {
 
 public:
   OrGate(int x, int y);
+  ~OrGate() override;
   QList<QPoint> orGatePixels;
-  virtual GateType getType() const;
 
-  /**
-   * @brief draw
-   * @param image
-   */
-  void virtual draw(QImage &image);
+  void draw(QImage &image) override;
+
+  GateType getType() const override;
 };
 
 #endif // ORGATE_H

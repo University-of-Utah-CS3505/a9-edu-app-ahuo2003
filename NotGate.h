@@ -7,14 +7,12 @@ class NotGate : public Gate {
 
 public:
   NotGate(int x, int y);
+  ~NotGate() override;
   QList<QPoint> notGatePixels;
-  virtual GateType getType() const;
 
-  /**
-   * @brief draw
-   * @param image
-   */
-  void virtual draw(QImage &image);
+  void draw(QImage &image) override;
+
+  GateType getType() const override;
 };
 
 #endif // NOTGATE_H

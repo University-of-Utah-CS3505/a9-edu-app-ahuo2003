@@ -7,15 +7,12 @@ class OutGate : public Gate {
 
 public:
   OutGate(int x, int y);
+  ~OutGate() override;
   QList<QPoint> outGatePixels;
 
-  virtual GateType getType() const;
+  void draw(QImage &image) override;
 
-  /**
-   * @brief draw
-   * @param image
-   */
-  void virtual draw(QImage &image);
+  GateType getType() const override;
 };
 
 #endif // OUTGATE_H

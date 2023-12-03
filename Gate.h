@@ -24,9 +24,9 @@ public:
     bool getTruthValue() const;
     QColor getCableColor() const;
 
-    virtual GateType getType() const = 0;
+    virtual GateType getType() const = 0; //Pure virtual, no need implementation in Gate.cpp
 
-    virtual void draw(QImage &image);
+    virtual void draw(QImage &image) = 0; //Pure virtual, no need implementation in Gate.cpp
 protected:
   int pos_x;
   int pos_y;

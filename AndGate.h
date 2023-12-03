@@ -8,13 +8,14 @@ class AndGate : public Gate {
 
 public:
   AndGate(int x, int y);
+  ~AndGate() override;
   QList<QPoint> andGatePixels;
   /**
    * @brief draw Draws the InGate Object
    */
-  void virtual draw(QImage &image);
+  void draw(QImage &image) override;
 
-  virtual GateType getType() const;
+  GateType getType() const override;
 };
 
 #endif // ANDGATE_H

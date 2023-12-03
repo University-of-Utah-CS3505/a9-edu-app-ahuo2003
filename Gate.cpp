@@ -2,6 +2,8 @@
 
 Gate::Gate(int x, int y) : pos_x(x), pos_y(y) {}
 
+Gate::~Gate() = default;
+
 
 void Gate::setPos(int pos_x, int pos_y){
     this->pos_x = pos_x;

@@ -8,14 +8,15 @@ class InGate : public Gate {
 
 public:
   InGate(int x, int y);
+  ~InGate() override;
   QList<QPoint> inGatePixels;
 
   /**
    * @brief draw Draws the InGate Object
    */
-  void virtual draw(QImage &image);
+  void draw(QImage &image) override;
 
-  virtual GateType getType() const;
+  GateType getType() const override;
 
   void mousePressed(QMouseEvent *event, QPoint center);
 };

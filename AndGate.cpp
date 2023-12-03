@@ -1,6 +1,8 @@
 #include "AndGate.h"
 
-AndGate::AndGate(int x, int y) : Gate(x,y){ this->type = GateType::AND; };
+AndGate::AndGate(int x, int y) : Gate(x,y){ this->type = GateType::AND; }
+
+AndGate::~AndGate() = default;
 
 GateType AndGate::getType() const{
     return this->type;

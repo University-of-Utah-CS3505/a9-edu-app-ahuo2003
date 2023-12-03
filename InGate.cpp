@@ -1,6 +1,8 @@
 #include "InGate.h"
 
-InGate::InGate(int x, int y) : Gate(x,y){ this->type = GateType::INPUT; };
+InGate::InGate(int x, int y) : Gate(x,y){ this->type = GateType::INPUT; }
+
+InGate::~InGate() = default;
 
 GateType InGate::getType() const{
     return this->type;

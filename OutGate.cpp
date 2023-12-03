@@ -1,6 +1,8 @@
 #include "OutGate.h"
 
-OutGate::OutGate(int x, int y) : Gate(x,y){ this->type = GateType::OUTPUT; };
+OutGate::OutGate(int x, int y) : Gate(x,y){ this->type = GateType::OUTPUT; }
+
+OutGate::~OutGate() = default;
 
 GateType OutGate::getType() const{
     return this->type;
