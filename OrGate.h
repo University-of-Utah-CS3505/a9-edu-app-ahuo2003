@@ -4,22 +4,15 @@
 #include "Gate.h"
 
 class OrGate : public Gate {
-  OrGate();
 
 public:
+  OrGate(int x, int y);
+  ~OrGate() override;
   QList<QPoint> orGatePixels;
-  /**
-   * @brief getPosition
-   * @param pos_x
-   * @param pos_y
-   */
-  void virtual getPosition(int pos_x, int pos_y);
 
-  /**
-   * @brief draw
-   * @param image
-   */
-  void virtual draw(QImage &image);
+  void draw(QImage &image) override;
+
+  GateType getType() const override;
 };
 
 #endif // ORGATE_H

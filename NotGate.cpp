@@ -1,9 +1,12 @@
 #include "NotGate.h"
 
-void NotGate::getPosition(int pos_x, int pos_y) {
-  this->pos_x = pos_x;
-  this->pos_y = pos_y;
-  this->truth = false;
+
+NotGate::NotGate(int x, int y) : Gate(x,y){ this->type = GateType::NOT; }
+
+NotGate::~NotGate() = default;
+
+GateType NotGate::getType() const{
+    return this->type;
 }
 
 void NotGate::draw(QImage &image) {
