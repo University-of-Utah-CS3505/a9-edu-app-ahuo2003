@@ -7,7 +7,7 @@ Model::Model(QObject *parent)
     Cable* c = new Cable(QPoint(0,0), Qt::red);
     cables.append(c);
     currCable = c;
-    scaleFactor = 16; // Default scaleFactor
+    scaleFactor = 20; // Default scaleFactor
 }
 
 void Model::loadLevel(int levelNum)
@@ -28,7 +28,7 @@ void Model::mouseEvent(QMouseEvent *event)
     }
 
     if(event->type() == QEvent::MouseButtonRelease){
-        this->currCable->mouseReleased(*levelView, mapToImageCoordinates(event->pos(), scaleFactor));
+        this->currCable->mouseReleased(*levelView);
     }
 
     if(event->type() == QEvent::MouseMove){
