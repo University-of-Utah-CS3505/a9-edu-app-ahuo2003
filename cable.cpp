@@ -4,7 +4,9 @@ Cable::Cable(QPoint startPos, QColor cableColor)
 {
     //Set the color of the cables
     this->cableColor = cableColor;
-    cableEndPosColor = cableColor.darker(20);
+    cableEndPosColor = cableColor.darker();
+    moveHorizontal = false;
+    moveVertical = false;
 
     //Append the starting position to the path list
     path.append(startPos);
@@ -17,7 +19,6 @@ Cable::Cable(QPoint startPos, QColor cableColor)
 
 void Cable::mousePressed(QImage &image, const QPoint &mouseLocation)
 {
-
     //If the user clicked at the end of the cable, allow them to draw.
     if ((mouseLocation.x() == cableEndPos->x()) && (mouseLocation.y() == cableEndPos->y())){
         // Start the Painter
@@ -33,50 +34,76 @@ void Cable::mousePressed(QImage &image, const QPoint &mouseLocation)
     }
 }
 
-void Cable::mouseReleased(QImage &image, const QPoint &mouseLocation)
+void Cable::mouseReleased(QImage &image)
 {
     //Set the end of the cable to the last item in the path list, and set its pixel color in the canvas to a darker version.
-    cableEndPos = &(path[path.size() - 1]);
-    image.setPixelColor(mouseLocation, cableEndPosColor);
+    if (canDraw){
+        cableEndPos = &(path[path.size() - 1]);
+        image.setPixelColor(*cableEndPos, cableEndPosColor);
 
-    //Stop the painter and remove the ability to draw
-    canDraw = false;
-    painter.end();
+        //Stop the painter and remove the ability to draw
+        canDraw = false;
+        moveHorizontal = false;
+        moveVertical = false;
+        painter.end();
+    }
 }
 
 void Cable::mouseMoved(const QPoint &mouseLocation)
 {
-
     //If the user starts at a drawable pixel, let it draw
     if (canDraw){
-        //Calculate change in y and x, and determine whether the user is drawing a straight line.
-        int dx = mouseLocation.x() - mouseLocation.x();
-        int dy = mouseLocation.y() - mouseLocation.y();
-
-        //If the user is drawing in a straight line, draw the line and record the coordinates.
-        if (dx == 0 || dy == 0){
-            drawLine(mouseLocation, mouseLocation);
-            appendToPath(mouseLocation, mouseLocation, dy, dx);
+        if (!moveHorizontal && !moveVertical){
+            int dx = cableEndPos->x() - mouseLocation.x();
+            int dy = cableEndPos->y() - mouseLocation.y();
+            qDebug() << dx;
+            qDebug() << dy;
+            if (*cableEndPos != mouseLocation) {
+                if (dx == 0){
+                    moveVertical = true;
+                }
+                else if (dy == 0){
+                    moveHorizontal = true;
+                }
+            }
         }
+
+        drawLine(*cableEndPos, mouseLocation);
+        appendToPath(*cableEndPos, mouseLocation);
     }
 }
 
 void Cable::drawLine(const QPoint& startPoint, const QPoint& endPoint)
 {
-    painter.drawLine(startPoint, endPoint);
+
+    QPoint direction;
+    if (moveVertical){
+        direction = QPoint(startPoint.x(), endPoint.y());
+        painter.drawLine(startPoint, direction);
+    }
+    //Fix horizontal moving
+    else if (moveHorizontal){
+        direction = QPoint(endPoint.x(), startPoint.y());
+        painter.drawLine(startPoint, direction);
+    }
 }
 
-void Cable::appendToPath(const QPoint &startPoint, const QPoint &endPoint, int &dy, int &dx){
+void Cable::appendToPath(const QPoint &startPoint, const QPoint &endPoint){
     //Determine whether the line is horizontal or vertical, and add all the pixel coordinates between the 2 points selected.
-    if (dx == 0){
-        for (int y = startPoint.y(); y <= endPoint.y(); y++){
+    int step = 1;
+    if (moveVertical){
+        if (endPoint.y() < startPoint.y()) step = -1;
+        for (int y = startPoint.y(); y != endPoint.y(); y+=step){
             path.append(QPoint(startPoint.x(), y));
         }
+        path.append(QPoint(startPoint.x(), endPoint.y()));
     }
-    else if (dy == 0){
-        for (int x = startPoint.x(); x <= endPoint.x(); x++){
+    else if (moveHorizontal){
+        if (endPoint.x() < startPoint.x()) step = -1;
+        for (int x = startPoint.x(); x != endPoint.x(); x+=step){
             path.append(QPoint(x, startPoint.y()));
         }
+        path.append(QPoint(endPoint.x(), startPoint.y()));
     }
 }
 
