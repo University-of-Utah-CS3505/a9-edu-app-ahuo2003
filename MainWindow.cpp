@@ -29,6 +29,7 @@ MainWindow::MainWindow(Canvas &canvas, Model &model, QWidget *parent)
     //connect(&model, &SpriteModel::updateScaleFactor, ui->drawingCanvas, &Canvas::updateCanvasScaleFactor);
     connect(ui->circuitCanvas, &Canvas::mouseEventSignal, &model, &Model::mouseEvent);
     connect(&model, &Model::invalidate, ui->circuitCanvas, &Canvas::redrawCanvas);
+    connect(ui->andDemo, &QPushButton::clicked, &model, &Model::setAndLevel);
 
 }
 

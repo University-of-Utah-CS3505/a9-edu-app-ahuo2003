@@ -12,14 +12,15 @@ class Model : public QObject {
 
 public:
   explicit Model(QObject *parent = nullptr);
-  void loadLevel(int levelNum);
+
 
 signals:
   void invalidate(QImage img);
-    void changeLevel(QImage levelImage);
+  void changeLevel(QImage levelImage);
 
 public slots:
   void mouseEvent(QMouseEvent *event);
+  void setAndLevel();
 
 private:
   QImage *levelView;
@@ -34,6 +35,7 @@ private:
      * @return a point in the model's image.
      */
   QPoint mapToImageCoordinates(const QPoint& point, int scaleFactor);
+  void loadLevel(int levelNum);
   friend class Cable;
   friend class Level;
 };

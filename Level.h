@@ -7,12 +7,14 @@ class Level {
 public:
   Level();
   ~Level();
+
+private:
+  QList<Gate *> gates;
   void addGate(Gate *gate, int x, int y);
   void renderLevel(QImage &image);
   void loadLevelData(int levelNumber);
 
-private:
-  QList<Gate*> gates;
+  friend class Model;
 };
 
 #endif // LEVEL_H
