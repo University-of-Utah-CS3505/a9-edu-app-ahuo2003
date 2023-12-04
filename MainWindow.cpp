@@ -31,7 +31,6 @@ MainWindow::MainWindow(Canvas &canvas, Model &model, QWidget *parent)
     connect(&model, &Model::invalidate, ui->circuitCanvas, &Canvas::redrawCanvas);
     connect(ui->andDemo, &QPushButton::clicked, &model, &Model::setAndLevel);
     connect(ui->submitTrail, &QPushButton::clicked, this, &MainWindow::on_submitTrail_clicked);
-
 }
 
 MainWindow::~MainWindow()
@@ -50,11 +49,11 @@ void MainWindow::initPreviews() {
     //blackColorPreview.fill(Qt::black);
 }
 
-
 void MainWindow::on_testStart_clicked()
 {
     ui->testStart->hide();
 }
+
 void MainWindow::on_submitTrail_clicked()
 {
     ui->widget->show();
@@ -72,4 +71,3 @@ void MainWindow::on_andDemo_clicked()
     ui->finalTest->hide();*/
     ui->widget->hide();
 }
-
