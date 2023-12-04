@@ -1,9 +1,11 @@
 #include "OrGate.h"
 
-void OrGate::getPosition(int pos_x, int pos_y) {
-  this->pos_x = pos_x;
-  this->pos_y = pos_y;
-  this->truth = false;
+OrGate::OrGate(int x, int y) : Gate(x,y){ this->type = GateType::OR; }
+
+OrGate::~OrGate() = default;
+
+GateType OrGate::getType() const{
+    return this->type;
 }
 
 void OrGate::draw(QImage &image) {

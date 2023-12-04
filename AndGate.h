@@ -4,21 +4,18 @@
 #include "Gate.h"
 
 class AndGate : public Gate {
-  AndGate();
+
 
 public:
+  AndGate(int x, int y);
+  ~AndGate() override;
   QList<QPoint> andGatePixels;
-  /**
-   * @brief getPosition
-   * @param pos_x
-   * @param pos_y
-   */
-  void virtual getPosition(int pos_x, int pos_y);
-
   /**
    * @brief draw Draws the InGate Object
    */
-  void virtual draw(QImage &image);
+  void draw(QImage &image) override;
+
+  GateType getType() const override;
 };
 
 #endif // ANDGATE_H

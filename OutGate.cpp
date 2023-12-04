@@ -1,9 +1,11 @@
 #include "OutGate.h"
 
-void OutGate::getPosition(int pos_x, int pos_y) {
-  this->pos_x = pos_x;
-  this->pos_y = pos_y;
-  this->truth = false;
+OutGate::OutGate(int x, int y) : Gate(x,y){ this->type = GateType::OUTPUT; }
+
+OutGate::~OutGate() = default;
+
+GateType OutGate::getType() const{
+    return this->type;
 }
 
 void OutGate::draw(QImage &image) {

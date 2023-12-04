@@ -1,9 +1,11 @@
 #include "InGate.h"
 
-void InGate::getPosition(int pos_x, int pos_y) {
-  this->pos_x = pos_x;
-  this->pos_y = pos_y;
-  this->truth = false;
+InGate::InGate(int x, int y) : Gate(x,y){ this->type = GateType::INPUT; }
+
+InGate::~InGate() = default;
+
+GateType InGate::getType() const{
+    return this->type;
 }
 
 void InGate::draw(QImage &image) {

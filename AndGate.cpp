@@ -1,9 +1,11 @@
 #include "AndGate.h"
 
-void AndGate::getPosition(int pos_x, int pos_y) {
-  this->pos_x = pos_x;
-  this->pos_y = pos_y;
-  this->truth = false;
+AndGate::AndGate(int x, int y) : Gate(x,y){ this->type = GateType::AND; }
+
+AndGate::~AndGate() = default;
+
+GateType AndGate::getType() const{
+    return this->type;
 }
 
 void AndGate::draw(QImage &image) {
