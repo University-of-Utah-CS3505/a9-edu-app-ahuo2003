@@ -19,9 +19,10 @@ public:
 
 public slots:
     void on_testStart_clicked();
+
     void on_andDemo_clicked();
 
-signals:
+    void on_submitTrail_clicked();
 
 private:
     Ui::MainWindow *ui;

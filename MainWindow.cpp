@@ -1,5 +1,5 @@
 #include "MainWindow.h"
-#include "ui_mainwindow.h"
+#include "ui_MainWindow.h"
 
 MainWindow::MainWindow(Canvas &canvas, Model &model, QWidget *parent)
     : QMainWindow(parent),
@@ -30,6 +30,7 @@ MainWindow::MainWindow(Canvas &canvas, Model &model, QWidget *parent)
     connect(ui->circuitCanvas, &Canvas::mouseEventSignal, &model, &Model::mouseEvent);
     connect(&model, &Model::invalidate, ui->circuitCanvas, &Canvas::redrawCanvas);
     connect(ui->andDemo, &QPushButton::clicked, &model, &Model::setAndLevel);
+    connect(ui->submitTrail, &QPushButton::clicked, this, &MainWindow::on_submitTrail_clicked);
 
 }
 
@@ -54,7 +55,10 @@ void MainWindow::on_testStart_clicked()
 {
     ui->testStart->hide();
 }
-
+void MainWindow::on_submitTrail_clicked()
+{
+    ui->widget->show();
+}
 
 void MainWindow::on_andDemo_clicked()
 {/*
