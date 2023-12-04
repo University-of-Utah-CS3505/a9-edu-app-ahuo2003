@@ -22,6 +22,8 @@ public slots:
 
     void on_andDemo_clicked();
 
+    void on_submitTrail_clicked();
+
 private:
     Ui::MainWindow *ui;
 
