@@ -54,6 +54,7 @@ protected:
     QPainter painter;
     bool moveHorizontal;
     bool moveVertical;
+    bool isDeleting;
     bool canDraw;
     int scaleFactor;
 
