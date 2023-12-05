@@ -501,48 +501,6 @@
      <string>Submit</string>
     </property>
    </widget>
-   <widget class="QToolButton" name="andGate">
-    <property name="geometry">
-     <rect>
-      <x>1120</x>
-      <y>20</y>
-      <width>131</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>AND GATE</string>
-    </property>
-   </widget>
-   <widget class="QToolButton" name="orGate">
-    <property name="geometry">
-     <rect>
-      <x>1120</x>
-      <y>90</y>
-      <width>131</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>OR GATE</string>
-    </property>
-   </widget>
-   <widget class="QToolButton" name="notGate">
-    <property name="geometry">
-     <rect>
-      <x>1120</x>
-      <y>160</y>
-      <width>131</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>NOT GATE</string>
-    </property>
-   </widget>
-   <zorder>andGate</zorder>
-   <zorder>orGate</zorder>
-   <zorder>notGate</zorder>
    <zorder>submitTrail</zorder>
    <zorder>circuitCanvas</zorder>
    <zorder>widget</zorder>

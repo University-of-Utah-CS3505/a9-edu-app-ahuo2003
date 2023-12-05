@@ -30,6 +30,7 @@ MainWindow::MainWindow(Canvas &canvas, Model &model, QWidget *parent)
     connect(ui->circuitCanvas, &Canvas::mouseEventSignal, &model, &Model::mouseEvent);
     connect(&model, &Model::invalidate, ui->circuitCanvas, &Canvas::redrawCanvas);
     connect(ui->submitTrail, &QPushButton::clicked, this, &MainWindow::on_submitTrial_clicked);
+    //connect(ui->submitTrail, &QPushButton::clicked, &model, &Model::);
     connect(ui->notDemo, &QPushButton::clicked, this, &MainWindow::on_orNot_clicked);
     connect(ui->levelOne, &QPushButton::clicked, this, &MainWindow::levelOne_clicked);
     connect(ui->levelTwo, &QPushButton::clicked, this, &MainWindow::levelTwo_clicked);
@@ -37,7 +38,7 @@ MainWindow::MainWindow(Canvas &canvas, Model &model, QWidget *parent)
     connect(ui->levelFour, &QPushButton::clicked, this, &MainWindow::levelFour_clicked);
     connect(ui->levelFive, &QPushButton::clicked, this, &MainWindow::levelFive_clicked);
     connect(ui->finalTest, &QPushButton::clicked, this, &MainWindow::finalTest_clicked);
-
+    connect(ui->andDemo, &QPushButton::clicked, &model, &Model::setAndLevel);
 }
 
 MainWindow::~MainWindow()
@@ -74,15 +75,8 @@ void MainWindow::on_testStart_clicked()
 
 void MainWindow::on_andDemo_clicked()
 {
-    /*ui->levelOne->hide();
-    ui->levelTwo->hide();
-    ui->levelThree->hide();
-    ui->levelFour->hide();
-    ui->levelFive->hide();
-    ui->orDemo->hide();
-    ui->notDemo->hide();
-    ui->finalTest->hide();*/
     ui->widget->hide();
+
 }
 
 void MainWindow::on_submitTrial_clicked()
