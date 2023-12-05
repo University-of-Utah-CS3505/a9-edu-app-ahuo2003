@@ -21,8 +21,15 @@ public slots:
     void on_testStart_clicked();
 
     void on_andDemo_clicked();
-
-    void on_submitTrail_clicked();
+    void on_orDemo_clicked();
+    void on_orNot_clicked();
+    void on_submitTrial_clicked();
+    void levelOne_clicked();
+    void levelTwo_clicked();
+    void levelThree_clicked();
+    void levelFour_clicked();
+    void levelFive_clicked();
+    void finalTest_clicked();
 
 private:
     Ui::MainWindow *ui;
