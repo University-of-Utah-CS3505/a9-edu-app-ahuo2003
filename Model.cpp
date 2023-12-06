@@ -20,11 +20,11 @@ void Model::mouseEvent(QMouseEvent *event)
 {
     qDebug() << event->pos();
     if(event->type() == QEvent::MouseButtonPress){
-//        for(Cable *c : cables){
-//            //Take care of scale factor
-//            if(event->pos() == *(c->getCableEndPos()))
-//                currCable = c;
-//        }
+        //        for(Cable *c : cables){
+        //            //Take care of scale factor
+        //            if(event->pos() == *(c->getCableEndPos()))
+        //                currCable = c;
+        //        }
         this->currCable->mousePressed(*levelView, mapToImageCoordinates(event->pos(), scaleFactor));
     }
 
@@ -40,11 +40,13 @@ void Model::mouseEvent(QMouseEvent *event)
 
 }
 
-void Model::setAndLevel()
+void Model::setAndLevel(int levelSelect)
 {
-    loadLevel(1);
+    levelView->fill(Qt::transparent);
+    loadLevel(levelSelect);
     currLevel.renderLevel(*levelView);
 }
+
 
 QPoint Model::mapToImageCoordinates(const QPoint &point, int scaleFactor){
     return QPoint(point.x() / scaleFactor, point.y() / scaleFactor);

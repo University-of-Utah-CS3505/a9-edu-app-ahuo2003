@@ -6,13 +6,13 @@
 class OrGate : public Gate {
 
 public:
-  OrGate(int x, int y);
-  ~OrGate() override;
-  QList<QPoint> orGatePixels;
+    OrGate(int x, int y);
+    ~OrGate() override;
+    QList<QPoint> orGatePixels;
 
-  void draw(QImage &image) override;
+    void draw(QImage &image) override;
 
-  GateType getType() const override;
+    GateType getType() const override;
 };
 
 #endif // ORGATE_H

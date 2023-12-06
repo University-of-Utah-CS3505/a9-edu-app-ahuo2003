@@ -17,6 +17,9 @@ public:
     MainWindow(Canvas &canvas, Model &model, QWidget *parent = nullptr);
     ~MainWindow();
 
+signals:
+    void setAndLevel(int levelSelect);
+
 public slots:
     void on_testStart_clicked();
 

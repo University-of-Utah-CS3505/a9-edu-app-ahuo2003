@@ -12,9 +12,6 @@ MainWindow::MainWindow(Canvas &canvas, Model &model, QWidget *parent)
     // Default window size of 1280x720 (non-resizable)
     this->setFixedSize(1280, 720);
 
-    // Initialize canvas.
-    //initPreviews();
-
     // Draw the canvas
     initCanvas();
 
@@ -23,14 +20,9 @@ MainWindow::MainWindow(Canvas &canvas, Model &model, QWidget *parent)
     ui->testStart->setIcon(ButtonIcon);
     ui->testStart->setIconSize(pixmap.rect().size());
 
-    // Canvas-to-Tools connection
-    //connect(ui->drawingCanvas, &Canvas::mouseEventSignal, &model, &SpriteModel::useTool);
-    //connect(&model, &SpriteModel::updateFrame, ui->drawingCanvas, &Canvas::redrawCanvas);
-    //connect(&model, &SpriteModel::updateScaleFactor, ui->drawingCanvas, &Canvas::updateCanvasScaleFactor);
     connect(ui->circuitCanvas, &Canvas::mouseEventSignal, &model, &Model::mouseEvent);
     connect(&model, &Model::invalidate, ui->circuitCanvas, &Canvas::redrawCanvas);
     connect(ui->submitTrail, &QPushButton::clicked, this, &MainWindow::on_submitTrial_clicked);
-    //connect(ui->submitTrail, &QPushButton::clicked, &model, &Model::);
     connect(ui->notDemo, &QPushButton::clicked, this, &MainWindow::on_orNot_clicked);
     connect(ui->levelOne, &QPushButton::clicked, this, &MainWindow::levelOne_clicked);
     connect(ui->levelTwo, &QPushButton::clicked, this, &MainWindow::levelTwo_clicked);
@@ -38,7 +30,7 @@ MainWindow::MainWindow(Canvas &canvas, Model &model, QWidget *parent)
     connect(ui->levelFour, &QPushButton::clicked, this, &MainWindow::levelFour_clicked);
     connect(ui->levelFive, &QPushButton::clicked, this, &MainWindow::levelFive_clicked);
     connect(ui->finalTest, &QPushButton::clicked, this, &MainWindow::finalTest_clicked);
-    connect(ui->andDemo, &QPushButton::clicked, &model, &Model::setAndLevel);
+    connect(this, &MainWindow::setAndLevel, &model, &Model::setAndLevel);
 }
 
 MainWindow::~MainWindow()
@@ -51,12 +43,6 @@ void MainWindow::initCanvas() {
     canvas.fill(Qt::transparent);
     ui->circuitCanvas->redrawCanvas(canvas);
 }
-
-void MainWindow::initPreviews() {
-    //animationPrev.fill(Qt::white);
-    //blackColorPreview.fill(Qt::black);
-}
-
 
 void MainWindow::on_testStart_clicked()
 {
@@ -76,7 +62,7 @@ void MainWindow::on_testStart_clicked()
 void MainWindow::on_andDemo_clicked()
 {
     ui->widget->hide();
-
+    emit setAndLevel(1);
 }
 
 void MainWindow::on_submitTrial_clicked()
@@ -89,13 +75,14 @@ void MainWindow::on_orDemo_clicked()
 {
     ui->notDemo->show();
     ui->widget->hide();
-
+    emit setAndLevel(2);
 }
 
 void MainWindow::on_orNot_clicked()
 {
     ui->levelOne->show();
     ui->widget->hide();
+    emit setAndLevel(3);
 }
 
 
@@ -103,31 +90,37 @@ void MainWindow::levelOne_clicked()
 {
     ui->levelTwo->show();
     ui->widget->hide();
+    emit setAndLevel(4);
 }
 void MainWindow::levelTwo_clicked()
 {
     ui->levelThree->show();
     ui->widget->hide();
+    emit setAndLevel(5);
 }
 void MainWindow::levelThree_clicked()
 {
     ui->levelFour->show();
     ui->widget->hide();
+    emit setAndLevel(6);
 }
 
 void MainWindow::levelFour_clicked()
 {
     ui->levelFive->show();
     ui->widget->hide();
+    emit setAndLevel(7);
 }
 
 void MainWindow::levelFive_clicked()
 {
     ui->finalTest->show();
     ui->widget->hide();
+    emit setAndLevel(8);
 }
 
 void MainWindow::finalTest_clicked()
 {
     ui->widget->hide();
+    emit setAndLevel(9);
 }

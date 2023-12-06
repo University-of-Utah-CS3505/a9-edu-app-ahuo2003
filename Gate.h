@@ -28,12 +28,12 @@ public:
 
     virtual void draw(QImage &image) = 0; //Pure virtual, no need implementation in Gate.cpp
 protected:
-  int pos_x;
-  int pos_y;
-  bool truth;
-  QColor cableColor;
-  QPainter painter;
-  GateType type;
+    int pos_x;
+    int pos_y;
+    bool truth;
+    QColor cableColor;
+    QPainter painter;
+    GateType type;
 };
 
 #endif // GATE_H

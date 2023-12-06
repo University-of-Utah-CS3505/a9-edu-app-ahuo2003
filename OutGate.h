@@ -6,13 +6,13 @@
 class OutGate : public Gate {
 
 public:
-  OutGate(int x, int y);
-  ~OutGate() override;
-  QList<QPoint> outGatePixels;
+    OutGate(int x, int y);
+    ~OutGate() override;
+    QList<QPoint> outGatePixels;
 
-  void draw(QImage &image) override;
+    void draw(QImage &image) override;
 
-  GateType getType() const override;
+    GateType getType() const override;
 };
 
 #endif // OUTGATE_H
