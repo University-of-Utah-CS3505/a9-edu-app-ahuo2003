@@ -5,9 +5,7 @@ Model::Model(QObject *parent)
 {
     levelView = new QImage(32,32, QImage::Format_ARGB32);
     levelView->fill(Qt::transparent);
-    Cable* c = new Cable(QPoint(0,0), Qt::red);
-    cables.append(c);
-    currCable = c;
+    currCable = nullptr;
     scaleFactor = 20; // Default scaleFactor
 }
 
@@ -18,20 +16,32 @@ void Model::loadLevel(int levelNum)
 
 void Model::mouseEvent(QMouseEvent *event)
 {
-    if(event->type() == QEvent::MouseButtonPress){
-        this->currCable->mousePressed(*levelView, mapToImageCoordinates(event->pos(), scaleFactor));
-    }
+    QPoint mousePos = mapToImageCoordinates(event->pos(), scaleFactor);
+    changeCurrentCable(mousePos);
+    if (currCable){
+        if(event->type() == QEvent::MouseButtonPress){
+            this->currCable->mousePressed(*levelView, mousePos);
+        }
 
-    if(event->type() == QEvent::MouseButtonRelease){
-        this->currCable->mouseReleased(*levelView);
-    }
+        if(event->type() == QEvent::MouseButtonRelease){
+            this->currCable->mouseReleased(*levelView);
+        }
 
-    if(event->type() == QEvent::MouseMove){
-        this->currCable->mouseMoved(*levelView, mapToImageCoordinates(event->pos(), scaleFactor));
+        if(event->type() == QEvent::MouseMove){
+            this->currCable->mouseMoved(*levelView, mousePos);
+        }
     }
-
     emit invalidate(*levelView);
+}
 
+void Model::changeCurrentCable(QPoint mousePos){
+    //Retrieve the currently used cable
+    for(auto gate : currLevel.gates){
+        QPoint* cablePos = gate->getCable()->getCableEndPos();
+        if (mousePos == *cablePos) {
+            currCable = gate->getCable();
+        }
+    }
 }
 
 void Model::setAndLevel(int levelSelect)

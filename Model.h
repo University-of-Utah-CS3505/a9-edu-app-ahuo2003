@@ -25,7 +25,6 @@ public slots:
 private:
     QImage *levelView;
     Cable *currCable;
-    QList<Cable *> cables;
     Level currLevel;
     int scaleFactor;
     /**
@@ -36,8 +35,10 @@ private:
      */
     QPoint mapToImageCoordinates(const QPoint& point, int scaleFactor);
     void loadLevel(int levelNum);
+    void changeCurrentCable(QPoint mousePos);
     friend class Cable;
     friend class Level;
+    friend class Gate;
 };
 
 #endif // MODEL_H
