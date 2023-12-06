@@ -18,13 +18,7 @@ void Model::loadLevel(int levelNum)
 
 void Model::mouseEvent(QMouseEvent *event)
 {
-    qDebug() << event->pos();
     if(event->type() == QEvent::MouseButtonPress){
-        //        for(Cable *c : cables){
-        //            //Take care of scale factor
-        //            if(event->pos() == *(c->getCableEndPos()))
-        //                currCable = c;
-        //        }
         this->currCable->mousePressed(*levelView, mapToImageCoordinates(event->pos(), scaleFactor));
     }
 
@@ -33,7 +27,7 @@ void Model::mouseEvent(QMouseEvent *event)
     }
 
     if(event->type() == QEvent::MouseMove){
-        this->currCable->mouseMoved(mapToImageCoordinates(event->pos(), scaleFactor));
+        this->currCable->mouseMoved(*levelView, mapToImageCoordinates(event->pos(), scaleFactor));
     }
 
     emit invalidate(*levelView);
