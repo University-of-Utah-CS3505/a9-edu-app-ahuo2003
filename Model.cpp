@@ -47,6 +47,7 @@ void Model::changeCurrentCable(QPoint mousePos){
 void Model::setAndLevel(int levelSelect)
 {
     levelView->fill(Qt::transparent);
+    currCable = nullptr;
     loadLevel(levelSelect);
     currLevel.renderLevel(*levelView);
 }

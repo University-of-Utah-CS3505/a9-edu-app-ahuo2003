@@ -1,7 +1,7 @@
 #include "NotGate.h"
 
 
-NotGate::NotGate(int x, int y) : Gate(x,y){ this->type = GateType::NOT; }
+NotGate::NotGate(int x, int y) : Gate(x,y){ this->type = GateType::NOT; this->output = Cable(QPoint(x+2, y), cableColor);}
 
 NotGate::~NotGate() = default;
 
