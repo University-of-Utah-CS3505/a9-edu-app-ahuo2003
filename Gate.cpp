@@ -1,6 +1,6 @@
 #include "Gate.h"
 
-Gate::Gate(int x, int y) : pos_x(x), pos_y(y) {}
+Gate::Gate(int x, int y) : pos_x(x), pos_y(y), output(QPoint(x, y), Qt::red){}
 
 Gate::~Gate() = default;
 
@@ -28,4 +28,8 @@ bool Gate::getTruthValue() const{
 
 QColor Gate::getCableColor() const{
     return this->cableColor;
+}
+
+Cable* Gate::getCable() {
+    return &(this->output);
 }

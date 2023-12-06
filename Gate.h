@@ -1,6 +1,6 @@
 #ifndef GATE_H
 #define GATE_H
-
+#include "Cable.h"
 #include <QColor>
 #include <QImage>
 #include <QPainter>
@@ -23,6 +23,7 @@ public:
     QPoint getPos() const;
     bool getTruthValue() const;
     QColor getCableColor() const;
+    Cable* getCable();
 
     virtual GateType getType() const = 0; //Pure virtual, no need implementation in Gate.cpp
 
@@ -34,6 +35,7 @@ protected:
     QColor cableColor;
     QPainter painter;
     GateType type;
+    Cable output;
 };
 
 #endif // GATE_H

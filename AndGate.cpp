@@ -1,6 +1,9 @@
 #include "AndGate.h"
 
-AndGate::AndGate(int x, int y) : Gate(x,y){ this->type = GateType::AND; }
+AndGate::AndGate(int x, int y) : Gate(x,y){
+    this->type = GateType::AND;
+    this->cableColor = Qt::red;
+    this->output = Cable(QPoint(x+3, y), cableColor);}
 
 AndGate::~AndGate() = default;
 
