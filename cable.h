@@ -34,7 +34,7 @@ public:
      * if they started drawing from the end of a cable.
      * @param mousePos position of the mouse.
      */
-    void mouseMoved(const QPoint &mousePos);
+    void mouseMoved(QImage&, const QPoint &mousePos);
 
     /**
      * @brief changeScaleFactor changes the scale factor to the desired scaleFactor.
@@ -51,29 +51,27 @@ protected:
     QColor cableColor;
     QColor cableEndPosColor;
     QList<QPoint> path;
-    QPainter painter;
     bool moveHorizontal;
     bool moveVertical;
-    bool isDeleting;
     bool canDraw;
     int scaleFactor;
 
 private:
     /**
-     * @brief drawLine draws a horizontal or vertical line between 2 points.
+     * @brief appendToPath gets all the points generated between 2 points in an image, and appends them to the path list.
+     * @param image where the line is drawn.
      * @param startPoint the starting point of a line.
      * @param endPoint the ending point of a line.
      */
-    void drawLine(const QPoint& startPoint, const QPoint& endPoint);
+    void appendToPath(QImage& image, const QPoint& startPoint, const QPoint& endPoint);
 
     /**
-     * @brief appendToPath gets all the points generated between 2 points in an image, and appends them to the path list.
+     * @brief deleteFromPath removes all the points between 2 points in an image if they exist in the path.
+     * @param image where the line is erased.
      * @param startPoint the starting point of a line.
      * @param endPoint the ending point of a line.
-     * @param dy change in y between the 2 points.
-     * @param dx change in x between the 2 points.
      */
-    void appendToPath(const QPoint& startPoint, const QPoint& endPoint);
+    void deleteFromPath(QImage& image, const QPoint& startPoint, const QPoint& endPoint);
 };
 
 #endif // CABLE_H
