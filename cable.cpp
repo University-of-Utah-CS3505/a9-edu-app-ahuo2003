@@ -14,8 +14,6 @@ Cable::Cable(QPoint startPos, QColor cableColor)
     canDraw = false;
 }
 
-
-
 void Cable::mousePressed(QImage &image, const QPoint &mouseLocation)
 {
     if ((mouseLocation.x() == cableEndPos->x()) && (mouseLocation.y() == cableEndPos->y())){
@@ -78,7 +76,6 @@ void Cable::appendToPath(QImage& image, const QPoint &startPoint, const QPoint &
             if (!path.contains(newPoint)){
                 path.append(newPoint);
                 image.setPixelColor(newPoint, cableColor);
-                qDebug()<< newPoint;
             }
         }
     }

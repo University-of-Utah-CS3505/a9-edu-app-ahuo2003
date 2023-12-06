@@ -1,6 +1,6 @@
 #include "OrGate.h"
 
-OrGate::OrGate(int x, int y) : Gate(x,y){ this->type = GateType::OR; }
+OrGate::OrGate(int x, int y) : Gate(x,y){ this->type = GateType::OR; this->output = Cable(QPoint(x+3, y), cableColor);}
 
 OrGate::~OrGate() = default;
 

@@ -1,6 +1,7 @@
 #include "InGate.h"
 
-InGate::InGate(int x, int y) : Gate(x,y){ this->type = GateType::INPUT; }
+InGate::InGate(int x, int y) : Gate(x,y){ this->type = GateType::INPUT; this->output = Cable(QPoint(x+2, y), cableColor);}
+
 
 InGate::~InGate() = default;
 
