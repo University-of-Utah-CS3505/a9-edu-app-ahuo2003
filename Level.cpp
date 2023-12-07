@@ -51,6 +51,27 @@ void Level::loadLevelData(int levelNumber)
     Gate* input21;
     Gate* input22;
     Gate* out21;
+    Gate* andGate1;
+
+    Gate* notGate2;
+    Gate* input31;
+    Gate* input32;
+    Gate* input33;
+    Gate* out31;
+    Gate* andGate2;
+    Gate* andGate3;
+
+    Gate* notGate4;
+    Gate* notGate5;
+    Gate* notGate6;
+    Gate* input41;
+    Gate* input42;
+    Gate* input43;
+    Gate* input44;
+    Gate* out41;
+    Gate* orGate1;
+    Gate* andGate4;
+    Gate* andGate5;
 
     switch (levelNumber) {
     case 1:
@@ -87,14 +108,57 @@ void Level::loadLevelData(int levelNumber)
         break;
 
     case 4:
-        notGate1 = new NotGate(20, 10);
+        notGate1 = new NotGate(7, 1);
         gates.append(notGate1);
-        input21 = new InGate(0,0);
+        input21 = new InGate(1,1);
         gates.append(input21);
-        input22 = new InGate(5,15);
+        input22 = new InGate(1,5);
         gates.append(input22);
-        out21 = new OutGate(25,25);
+        out21 = new OutGate(25, 3);
         gates.append(out21);
+        andGate1 = new AndGate(15, 3);
+        gates.append(andGate1);
+        break;
+
+    case 5:
+        notGate2 = new NotGate(6, 1);
+        gates.append(notGate2);
+        input31 = new InGate(1,1);
+        gates.append(input31);
+        input32 = new InGate(1,5);
+        gates.append(input32);
+        input33 = new InGate(1,9);
+        gates.append(input33);
+        out31 = new OutGate(30, 5);
+        gates.append(out31);
+        andGate2 = new AndGate(12, 3);
+        gates.append(andGate2);
+        andGate3 = new AndGate(22, 5);
+        gates.append(andGate3);
+        break;
+    case 6:
+        notGate4 = new NotGate(6, 1);
+        gates.append(notGate4);
+        notGate5 = new NotGate(6, 9);
+        gates.append(notGate5);
+        notGate6 = new NotGate(24, 7);
+        gates.append(notGate6);
+        input41 = new InGate(1,1);
+        gates.append(input41);
+        input42 = new InGate(1,5);
+        gates.append(input42);
+        input43 = new InGate(1,9);
+        gates.append(input43);
+        input44 = new InGate(1,13);
+        gates.append(input44);
+        out41 = new OutGate(31, 7);
+        gates.append(out41);
+        andGate4 = new AndGate(12, 3);
+        gates.append(andGate4);
+        andGate5 = new AndGate(18, 7);
+        gates.append(andGate5);
+        orGate1 = new OrGate(12, 11);
+        gates.append(orGate1);
         break;
     }
 }
