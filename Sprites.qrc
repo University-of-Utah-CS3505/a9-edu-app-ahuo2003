@@ -1,8 +1,16 @@
 <RCC>
     <qresource prefix="/sprites">
-        <file>alien1.png</file>
         <file>title.png</file>
-        <file>pixelBoard.jpg</file>
-        <file>dynamixHue.jpg</file>
+        <file>And_Demo.png</file>
+        <file>Final_Level.png</file>
+        <file>Level_Five.png</file>
+        <file>Level_Four.png</file>
+        <file>Level_One.png</file>
+        <file>Level_Six.png</file>
+        <file>Level_Three.png</file>
+        <file>Level_Two.png</file>
+        <file>Not_Demo.png</file>
+        <file>Or_Demo.png</file>
+        <file>backGround.jpg</file>
     </qresource>
 </RCC>

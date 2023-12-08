@@ -278,10 +278,10 @@
     <widget class="QPushButton" name="andDemo">
      <property name="geometry">
       <rect>
-       <x>20</x>
+       <x>40</x>
        <y>20</y>
-       <width>391</width>
-       <height>141</height>
+       <width>360</width>
+       <height>140</height>
       </rect>
      </property>
      <property name="font">
@@ -290,17 +290,20 @@
        <pointsize>24</pointsize>
       </font>
      </property>
+     <property name="styleSheet">
+      <string notr="true">background-image: url(:/sprites/And_Demo.png);</string>
+     </property>
      <property name="text">
-      <string>AND Demo</string>
+      <string/>
      </property>
     </widget>
     <widget class="QPushButton" name="orDemo">
      <property name="geometry">
       <rect>
-       <x>450</x>
+       <x>470</x>
        <y>20</y>
-       <width>391</width>
-       <height>141</height>
+       <width>360</width>
+       <height>140</height>
       </rect>
      </property>
      <property name="font">
@@ -309,17 +312,20 @@
        <pointsize>24</pointsize>
       </font>
      </property>
+     <property name="styleSheet">
+      <string notr="true">background-image: url(:/sprites/Or_Demo.png);</string>
+     </property>
      <property name="text">
-      <string>OR Demo</string>
+      <string/>
      </property>
     </widget>
     <widget class="QPushButton" name="notDemo">
      <property name="geometry">
       <rect>
-       <x>870</x>
+       <x>890</x>
        <y>20</y>
-       <width>391</width>
-       <height>141</height>
+       <width>360</width>
+       <height>140</height>
       </rect>
      </property>
      <property name="font">
@@ -328,8 +334,11 @@
        <pointsize>24</pointsize>
       </font>
      </property>
+     <property name="styleSheet">
+      <string notr="true">background-image: url(:/sprites/Not_Demo.png);</string>
+     </property>
      <property name="text">
-      <string>NOT Demo</string>
+      <string/>
      </property>
     </widget>
     <widget class="QPushButton" name="levelOne">
@@ -337,8 +346,8 @@
       <rect>
        <x>40</x>
        <y>500</y>
-       <width>361</width>
-       <height>141</height>
+       <width>360</width>
+       <height>140</height>
       </rect>
      </property>
      <property name="font">
@@ -346,8 +355,11 @@
        <pointsize>20</pointsize>
       </font>
      </property>
+     <property name="styleSheet">
+      <string notr="true">background-image: url(:/sprites/Level_One.png);</string>
+     </property>
      <property name="text">
-      <string>Level 1</string>
+      <string/>
      </property>
     </widget>
     <widget class="QPushButton" name="levelTwo">
@@ -355,8 +367,8 @@
       <rect>
        <x>40</x>
        <y>320</y>
-       <width>361</width>
-       <height>141</height>
+       <width>360</width>
+       <height>140</height>
       </rect>
      </property>
      <property name="font">
@@ -364,8 +376,11 @@
        <pointsize>20</pointsize>
       </font>
      </property>
+     <property name="styleSheet">
+      <string notr="true">background-image: url(:/sprites/Level_Two.png);</string>
+     </property>
      <property name="text">
-      <string>Level 2</string>
+      <string/>
      </property>
     </widget>
     <widget class="QPushButton" name="levelThree">
@@ -373,8 +388,8 @@
       <rect>
        <x>470</x>
        <y>320</y>
-       <width>361</width>
-       <height>141</height>
+       <width>360</width>
+       <height>140</height>
       </rect>
      </property>
      <property name="font">
@@ -382,8 +397,11 @@
        <pointsize>20</pointsize>
       </font>
      </property>
+     <property name="styleSheet">
+      <string notr="true">background-image: url(:/sprites/Level_Three.png);</string>
+     </property>
      <property name="text">
-      <string>Level 3</string>
+      <string/>
      </property>
     </widget>
     <widget class="QPushButton" name="levelFour">
@@ -391,8 +409,8 @@
       <rect>
        <x>470</x>
        <y>510</y>
-       <width>361</width>
-       <height>141</height>
+       <width>360</width>
+       <height>140</height>
       </rect>
      </property>
      <property name="font">
@@ -400,8 +418,11 @@
        <pointsize>20</pointsize>
       </font>
      </property>
+     <property name="styleSheet">
+      <string notr="true">background-image: url(:/sprites/Level_Four.png);</string>
+     </property>
      <property name="text">
-      <string>Level 4</string>
+      <string/>
      </property>
     </widget>
     <widget class="QPushButton" name="levelFive">
@@ -409,8 +430,8 @@
       <rect>
        <x>890</x>
        <y>320</y>
-       <width>361</width>
-       <height>141</height>
+       <width>360</width>
+       <height>140</height>
       </rect>
      </property>
      <property name="font">
@@ -418,8 +439,11 @@
        <pointsize>20</pointsize>
       </font>
      </property>
+     <property name="styleSheet">
+      <string notr="true">background-image: url(:/sprites/Level_Five.png);</string>
+     </property>
      <property name="text">
-      <string>Level 5</string>
+      <string/>
      </property>
     </widget>
     <widget class="QPushButton" name="finalTest">
@@ -427,8 +451,8 @@
       <rect>
        <x>890</x>
        <y>510</y>
-       <width>361</width>
-       <height>141</height>
+       <width>360</width>
+       <height>140</height>
       </rect>
      </property>
      <property name="font">
@@ -436,8 +460,11 @@
        <pointsize>20</pointsize>
       </font>
      </property>
+     <property name="styleSheet">
+      <string notr="true">background-image: url(:/sprites/Final_Level.png);</string>
+     </property>
      <property name="text">
-      <string>Final Test</string>
+      <string/>
      </property>
     </widget>
    </widget>
@@ -447,7 +474,7 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>299</x>
+      <x>310</x>
       <y>34</y>
       <width>641</width>
       <height>641</height>
@@ -501,10 +528,10 @@
      <string>Submit</string>
     </property>
    </widget>
-   <widget class="QFrame" name="frame">
+   <widget class="QFrame" name="border">
     <property name="geometry">
      <rect>
-      <x>296</x>
+      <x>307</x>
       <y>31</y>
       <width>647</width>
       <height>647</height>
@@ -525,7 +552,24 @@
      <enum>QFrame::Raised</enum>
     </property>
    </widget>
-   <zorder>frame</zorder>
+   <widget class="QLabel" name="backGround">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>1281</width>
+      <height>721</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-image: url(:/sprites/backGround.jpg);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <zorder>backGround</zorder>
+   <zorder>border</zorder>
    <zorder>circuitCanvas</zorder>
    <zorder>submitTrail</zorder>
    <zorder>widget</zorder>
