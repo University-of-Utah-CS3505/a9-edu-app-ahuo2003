@@ -8,7 +8,9 @@
 #include <QPoint>
 
 /**
- * @brief The Cable class TODO
+ * @brief The Cable class provide a visible cables using QPoint
+ * to draw it onto the canvas. the class also provide logic between
+ * cable and multiple gates.
  */
 class Cable {
 public:
