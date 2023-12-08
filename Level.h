@@ -5,16 +5,32 @@
 
 class Level {
 public:
-    Level();
-    ~Level();
+  Level();
+  ~Level();
 
 private:
-    QList<Gate *> gates;
-    void addGate(Gate *gate, int x, int y);
-    void renderLevel(QImage &image);
-    void loadLevelData(int levelNumber);
+  QList<Gate *> gates;
+  /**
+   * @brief addGate TODO
+   * @param gate TODO
+   * @param x TODO
+   * @param y TODO
+   */
+  void addGate(Gate *gate, int x, int y);
 
-    friend class Model;
+  /**
+   * @brief renderLevel TODO
+   * @param image TODO
+   */
+  void renderLevel(QImage &image);
+
+  /**
+   * @brief loadLevelData TODO
+   * @param levelNumber TODO
+   */
+  void loadLevelData(int levelNumber);
+
+  friend class Model;
 };
 
 #endif // LEVEL_H
