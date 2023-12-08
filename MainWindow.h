@@ -24,6 +24,7 @@ signals:
    * @param levelSelect TODO
    */
   void setAndLevel(int levelSelect);
+  void redraw();
 
 public slots:
   /**

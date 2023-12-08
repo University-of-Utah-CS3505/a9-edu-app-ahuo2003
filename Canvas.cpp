@@ -1,6 +1,4 @@
 #include "Canvas.h"
-#include "qpainter.h"
-#include "qpen.h"
 
 // General Tool Declaration
 Canvas::Canvas(QWidget *parent) : QLabel(parent) {
@@ -13,16 +11,6 @@ void Canvas::redrawCanvas(QImage frame) {
         frame.scaled(frame.width() * scaleFactor, frame.height() * scaleFactor,
                      Qt::KeepAspectRatio, Qt::FastTransformation));
     setPixmap(pixmap);
-}
-
-void Canvas::drawGrid(QPixmap &pixmap) {
-    QPainter painter(&pixmap);
-    painter.setPen(QPen(Qt::black, 1, Qt::SolidLine));
-
-    for (int i = scaleFactor; i <= pixmap.width(); i += scaleFactor) {
-        painter.drawLine(i, 0, i, pixmap.height());
-        painter.drawLine(0, i, pixmap.width(), i);
-    }
 }
 
 void Canvas::mousePressEvent(QMouseEvent *event) {
