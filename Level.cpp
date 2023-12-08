@@ -77,9 +77,9 @@ void Level::loadLevelData(int levelNumber)
     case 1:
         andGate = new AndGate(15, 10);
         gates.append(andGate);
-        input1 = new InGate(5,5);
+        input1 = new InGate(5,5, Qt::red);
         gates.append(input1);
-        input2 = new InGate(5,15);
+        input2 = new InGate(5,15, Qt::red);
         gates.append(input2);
         out = new OutGate(30,10);
         gates.append(out);
@@ -88,9 +88,9 @@ void Level::loadLevelData(int levelNumber)
     case 2:
         orGate = new OrGate(15, 10);
         gates.append(orGate);
-        input01 = new InGate(5,5);
+        input01 = new InGate(5,5, Qt::red);
         gates.append(input01);
-        input02 = new InGate(5,15);
+        input02 = new InGate(5,15, Qt::red);
         gates.append(input02);
         out01 = new OutGate(30,10);
         gates.append(out01);
@@ -99,9 +99,9 @@ void Level::loadLevelData(int levelNumber)
     case 3:
         notGate = new NotGate(15, 10);
         gates.append(notGate);
-        input11 = new InGate(5,5);
+        input11 = new InGate(5,5, Qt::red);
         gates.append(input11);
-        input12 = new InGate(5,15);
+        input12 = new InGate(5,15, Qt::red);
         gates.append(input12);
         out11 = new OutGate(30,10);
         gates.append(out11);
@@ -110,9 +110,9 @@ void Level::loadLevelData(int levelNumber)
     case 4:
         notGate1 = new NotGate(7, 1);
         gates.append(notGate1);
-        input21 = new InGate(1,1);
+        input21 = new InGate(1,1, Qt::red);
         gates.append(input21);
-        input22 = new InGate(1,5);
+        input22 = new InGate(1,5, Qt::red);
         gates.append(input22);
         out21 = new OutGate(25, 3);
         gates.append(out21);
@@ -123,11 +123,11 @@ void Level::loadLevelData(int levelNumber)
     case 5:
         notGate2 = new NotGate(6, 1);
         gates.append(notGate2);
-        input31 = new InGate(1,1);
+        input31 = new InGate(1,1, Qt::red);
         gates.append(input31);
-        input32 = new InGate(1,5);
+        input32 = new InGate(1,5, Qt::red);
         gates.append(input32);
-        input33 = new InGate(1,9);
+        input33 = new InGate(1,9, Qt::red);
         gates.append(input33);
         out31 = new OutGate(30, 5);
         gates.append(out31);
@@ -143,13 +143,13 @@ void Level::loadLevelData(int levelNumber)
         gates.append(notGate5);
         notGate6 = new NotGate(24, 7);
         gates.append(notGate6);
-        input41 = new InGate(1,1);
+        input41 = new InGate(1,1, Qt::red);
         gates.append(input41);
-        input42 = new InGate(1,5);
+        input42 = new InGate(1,5, Qt::red);
         gates.append(input42);
-        input43 = new InGate(1,9);
+        input43 = new InGate(1,9, Qt::red);
         gates.append(input43);
-        input44 = new InGate(1,13);
+        input44 = new InGate(1,13, Qt::red);
         gates.append(input44);
         out41 = new OutGate(31, 7);
         gates.append(out41);

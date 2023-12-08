@@ -7,7 +7,7 @@
 class InGate : public Gate {
 
 public:
-    InGate(int x, int y);
+    InGate(int x, int y, QColor cableColor);
     ~InGate() override;
     QList<QPoint> inGatePixels;
 
