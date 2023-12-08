@@ -49,7 +49,23 @@ public:
    */
   void changeScaleFactor(int newScaleFactor);
 
+  /**
+   * @brief getCableEndPos get cable's end position.
+   * @return returns the position.
+   */
   QPoint *getCableEndPos() const;
+
+  /**
+   * @brief redrawCable redraws the cable based on its path.
+   * @param image the image to be drawn on.
+   */
+  void redrawCable(QImage& image);
+
+  /**
+   * @brief changeSignal changes the signal of the cable to the desired signal(true or false).
+   * @param newSignal the new signal.
+   */
+  void changeSignal(bool newSignal);
 
 protected:
   QPoint *cableEndPos;
@@ -59,6 +75,7 @@ protected:
   bool moveHorizontal;
   bool moveVertical;
   bool canDraw;
+  bool signal;
   int scaleFactor;
 
 private:

@@ -11,6 +11,7 @@ Cable::Cable(QPoint startPos, QColor cableColor) {
   path.append(startPos);
   cableEndPos = &(path[0]);
   canDraw = false;
+  signal = false;
 }
 
 void Cable::mousePressed(QImage &image, const QPoint &mouseLocation) {
@@ -107,3 +108,16 @@ void Cable::changeScaleFactor(int newScaleFactor) {
 }
 
 QPoint *Cable::getCableEndPos() const { return cableEndPos; }
+
+
+void Cable::redrawCable(QImage &image)
+{
+  for (QPoint point : path){
+    image.setPixelColor(point, cableColor);
+  }
+}
+
+void Cable::changeSignal(bool newSignal)
+{
+  this->signal = newSignal;
+}
