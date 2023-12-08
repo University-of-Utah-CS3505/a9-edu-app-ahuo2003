@@ -9,6 +9,12 @@ NotGate::~NotGate() = default;
 
 GateType NotGate::getType() const { return this->type; }
 
+bool NotGate::computeTruthValue() const
+{
+  if(inputGates.isEmpty()) return false;
+  return !inputGates.front()->getTruthValue();
+}
+
 void NotGate::draw(QImage &image) {
   this->painter.begin(&image);
 

@@ -30,6 +30,8 @@ public:
    * @return GateType::NOT.
    */
   GateType getType() const override;
+
+  bool computeTruthValue() const override;
 };
 
 #endif // NOTGATE_H

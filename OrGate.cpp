@@ -9,6 +9,15 @@ OrGate::~OrGate() = default;
 
 GateType OrGate::getType() const { return this->type; }
 
+bool OrGate::computeTruthValue() const
+{
+  if(inputGates.isEmpty()) return false;
+  for (Gate* inputGate: inputGates){
+      if(inputGate->getTruthValue()) return true;
+  }
+  return false;
+}
+
 void OrGate::draw(QImage &image) {
   this->painter.begin(&image);
 

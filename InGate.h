@@ -25,6 +25,8 @@ public:
    * @return GateType::INPUT.
    */
   GateType getType() const override;
+
+  bool computeTruthValue() const override;
 };
 
 #endif // INGATE_H

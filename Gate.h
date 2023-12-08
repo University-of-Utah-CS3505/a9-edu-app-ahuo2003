@@ -43,6 +43,10 @@ public:
    */
   virtual void
   draw(QImage &image) = 0; // Pure virtual, no need implementation in Gate.cpp
+
+  virtual bool computeTruthValue() const = 0;
+  void addInputGate(Gate* gate);
+  const QList<Gate*>& getInputGates();
 protected:
   int pos_x;
   int pos_y;
@@ -51,6 +55,7 @@ protected:
   QPainter painter;
   GateType type;
   Cable output;
+  QList<Gate*> inputGates;
 };
 
 #endif // GATE_H

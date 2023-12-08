@@ -36,6 +36,7 @@ public:
    * @return GateType::OR.
    */
   GateType getType() const override;
+  bool computeTruthValue() const override;
 };
 
 #endif // ORGATE_H

@@ -9,7 +9,8 @@ public:
   ~Level();
 
 private:
-  QList<Gate *> gates;
+  QList<Gate*> gates;
+  QMap<Gate*, QList<Gate*>> connections;
   /**
    * @brief addGate TODO
    * @param gate TODO
@@ -30,7 +31,14 @@ private:
    */
   void loadLevelData(int levelNumber);
 
-  friend class Model;
+  void connectGates(Gate* output, Gate* input);
+  void checkConnections();
+  void checkDualInput(Gate* inGate, Gate* andOrGate, const QPoint& input1Pos, const QPoint& input2Pos);
+  void checkSingleInput(Gate* inGate, Gate* notOutGate, const QPoint& inputPos);
+  void refreshTruthValues();
+
+
+  friend class Model; 
 };
 
 #endif // LEVEL_H

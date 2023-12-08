@@ -25,6 +25,7 @@ void Model::mouseEvent(QMouseEvent *event)
 
         if(event->type() == QEvent::MouseButtonRelease){
             this->currCable->mouseReleased(*levelView);
+            currLevel.checkConnections();
         }
 
         if(event->type() == QEvent::MouseMove){

@@ -10,6 +10,11 @@ InGate::~InGate() = default;
 
 GateType InGate::getType() const { return this->type; }
 
+bool InGate::computeTruthValue() const
+{
+  return getTruthValue();
+}
+
 void InGate::draw(QImage &image) {
   this->painter.begin(&image);
 

@@ -22,3 +22,13 @@ bool Gate::getTruthValue() const { return this->truth; }
 QColor Gate::getCableColor() const { return this->cableColor; }
 
 Cable *Gate::getCable() { return &(this->output); }
+
+void Gate::addInputGate(Gate* gate)
+{
+  if(gate != nullptr) inputGates.append(gate);
+}
+
+const QList<Gate *> &Gate::getInputGates()
+{
+  return inputGates;
+}

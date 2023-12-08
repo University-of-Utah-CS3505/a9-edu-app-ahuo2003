@@ -6,6 +6,12 @@ OutGate::~OutGate() = default;
 
 GateType OutGate::getType() const { return this->type; }
 
+bool OutGate::computeTruthValue() const
+{
+    if(inputGates.isEmpty()) return false;
+    return inputGates.front()->getTruthValue();
+}
+
 void OutGate::draw(QImage &image) {
   this->painter.begin(&image);
 
