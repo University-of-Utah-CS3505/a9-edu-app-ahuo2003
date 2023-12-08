@@ -83,7 +83,7 @@ void Level::loadLevelData(int levelNumber)
         gates.append(new AndGate(18, 7));
         gates.append(new OrGate(12, 11));
         break;
-        //----------------------------------------------------
+
     case 7:
         gates.append(new NotGate(6, 1));
         gates.append(new NotGate(6, 9));
@@ -99,35 +99,35 @@ void Level::loadLevelData(int levelNumber)
         gates.append(new OrGate(15, 20));
         break;
 
-
     case 8:
         gates.append(new NotGate(6, 1));
-        gates.append(new NotGate(6, 9));
-        gates.append(new NotGate(24, 7));
+        gates. append(new NotGate(12, 25));
+        gates.append(new NotGate(20, 28));
         gates.append(new InGate(1,1));
-        gates.append(new InGate(1,5));
-        gates.append(new InGate(1,9));
+        gates.append(new InGate(1,30));
         gates.append(new InGate(1,13));
-        gates.append(new OutGate(31, 7));
+        gates.append(new InGate(1,23));
+        gates.append(new OutGate(31, 15));
         gates.append(new AndGate(12, 3));
-        gates.append(new AndGate(18, 7));
-        gates.append(new OrGate(12, 11));
+        gates.append(new OrGate(18, 13));
+        gates.append(new OrGate(20, 22));
         break;
 
     case 9:
         gates.append(new NotGate(6, 1));
         gates.append(new NotGate(6, 9));
         gates.append(new NotGate(24, 7));
-        gates. append(new NotGate(12, 10));
-        gates.append(new NotGate(12, 12));
+        gates. append(new NotGate(12, 25));
+        gates.append(new NotGate(20, 28));
         gates.append(new InGate(1,1));
         gates.append(new InGate(1,5));
-        gates.append(new InGate(1,9));
+        gates.append(new InGate(1,30));
         gates.append(new InGate(1,13));
-        gates.append(new OutGate(31, 7));
+        gates.append(new InGate(1,23));
+        gates.append(new OutGate(31, 15));
         gates.append(new AndGate(12, 3));
-        gates.append(new AndGate(18, 7));
-        gates.append(new OrGate(12, 11));
+        gates.append(new AndGate(18, 13));
+        gates.append(new OrGate(20, 22));
         break;
     }
 }
