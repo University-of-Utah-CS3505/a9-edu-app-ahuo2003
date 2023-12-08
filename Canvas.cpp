@@ -12,7 +12,6 @@ void Canvas::redrawCanvas(QImage frame) {
     QPixmap pixmap = QPixmap::fromImage(
         frame.scaled(frame.width() * scaleFactor, frame.height() * scaleFactor,
                      Qt::KeepAspectRatio, Qt::FastTransformation));
-    drawGrid(pixmap);
     setPixmap(pixmap);
 }
 

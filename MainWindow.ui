@@ -17,8 +17,8 @@
       <brush brushstyle="SolidPattern">
        <color alpha="255">
         <red>0</red>
-        <green>22</green>
-        <blue>50</blue>
+        <green>74</green>
+        <blue>81</blue>
        </color>
       </brush>
      </colorrole>
@@ -28,8 +28,8 @@
       <brush brushstyle="SolidPattern">
        <color alpha="255">
         <red>0</red>
-        <green>22</green>
-        <blue>50</blue>
+        <green>74</green>
+        <blue>81</blue>
        </color>
       </brush>
      </colorrole>
@@ -39,8 +39,8 @@
       <brush brushstyle="SolidPattern">
        <color alpha="255">
         <red>0</red>
-        <green>22</green>
-        <blue>50</blue>
+        <green>74</green>
+        <blue>81</blue>
        </color>
       </brush>
      </colorrole>
@@ -48,8 +48,8 @@
       <brush brushstyle="SolidPattern">
        <color alpha="255">
         <red>0</red>
-        <green>22</green>
-        <blue>50</blue>
+        <green>74</green>
+        <blue>81</blue>
        </color>
       </brush>
      </colorrole>
@@ -450,7 +450,7 @@
       <x>299</x>
       <y>34</y>
       <width>641</width>
-      <height>631</height>
+      <height>641</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -501,8 +501,33 @@
      <string>Submit</string>
     </property>
    </widget>
-   <zorder>submitTrail</zorder>
+   <widget class="QFrame" name="frame">
+    <property name="geometry">
+     <rect>
+      <x>296</x>
+      <y>31</y>
+      <width>647</width>
+      <height>647</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QFrame {
+    border-style: solid;
+    border-width: 8px;
+    border-color: black;
+    background-color: transparent;
+}</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+   </widget>
+   <zorder>frame</zorder>
    <zorder>circuitCanvas</zorder>
+   <zorder>submitTrail</zorder>
    <zorder>widget</zorder>
    <zorder>testStart</zorder>
   </widget>
