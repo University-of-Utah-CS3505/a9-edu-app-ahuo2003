@@ -2,6 +2,8 @@
 
 OrGate::OrGate(int x, int y) : Gate(x, y) {
   this->type = GateType::OR;
+  this->cableColor = Qt::red;
+  this->truth = false;
   this->output = Cable(QPoint(x + 3, y), cableColor);
 }
 
@@ -12,6 +14,7 @@ GateType OrGate::getType() const { return this->type; }
 bool OrGate::computeTruthValue() const
 {
   if(inputGates.isEmpty()) return false;
+  if(inputGates.size() == 1) return false;
   for (Gate* inputGate: inputGates){
       if(inputGate->getTruthValue()) return true;
   }

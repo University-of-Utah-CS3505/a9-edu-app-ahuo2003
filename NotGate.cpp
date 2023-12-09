@@ -2,6 +2,8 @@
 
 NotGate::NotGate(int x, int y) : Gate(x, y) {
   this->type = GateType::NOT;
+  this->cableColor = Qt::red;
+  this->truth = false;
   this->output = Cable(QPoint(x + 2, y), cableColor);
 }
 
@@ -56,4 +58,4 @@ void NotGate::draw(QImage &image) {
   this->painter.end();
 }
 
-QPoint NotGate::getInput() { return QPoint(pos_x - 2, pos_y - 1); }
+QPoint NotGate::getInput() { return QPoint(pos_x - 1, pos_y); }

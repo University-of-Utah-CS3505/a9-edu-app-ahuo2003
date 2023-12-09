@@ -3,6 +3,7 @@
 AndGate::AndGate(int x, int y) : Gate(x, y) {
   this->type = GateType::AND;
   this->cableColor = Qt::red;
+  this->truth = false;
   this->output = Cable(QPoint(x + 3, y), cableColor);
 }
 
@@ -11,11 +12,14 @@ AndGate::~AndGate() = default;
 GateType AndGate::getType() const { return this->type; }
 
 bool AndGate::computeTruthValue() const {
+  qDebug()<< "AND GATE SIZE: " << inputGates.size();
   if(inputGates.isEmpty()) return false;
-
+  if(inputGates.size() == 1) return false;
   for (Gate *inputGate : inputGates) {
-    if (!inputGate->getTruthValue())
-      return false;
+      if (!(inputGate->getTruthValue())){
+          qDebug()<< "AND GATE INPUT GATES VALUES - " << inputGate->getTruthValue();
+          return false;
+      }
   }
   return true;
 }

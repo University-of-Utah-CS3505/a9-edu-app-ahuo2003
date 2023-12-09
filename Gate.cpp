@@ -10,7 +10,10 @@ void Gate::setPos(int pos_x, int pos_y) {
 }
 
 void Gate::setTruthValue(bool val) { this->truth = val; }
-void Gate::setCableColor(const QColor &color) { this->cableColor = color; }
+void Gate::setCableColor(const QColor &color) {
+  this->cableColor = color;
+  this->getCable()->changeCableColor(color);
+}
 
 QPoint Gate::getPos() const {
   QPoint pos(this->pos_x, this->pos_y);
