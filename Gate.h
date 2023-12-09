@@ -46,7 +46,9 @@ public:
 
   virtual bool computeTruthValue() const = 0;
   void addInputGate(Gate* gate);
+  void removeInputGate(Gate* input);
   const QList<Gate*>& getInputGates();
+  void setInputGates(QList<Gate*>& input);
 protected:
   int pos_x;
   int pos_y;

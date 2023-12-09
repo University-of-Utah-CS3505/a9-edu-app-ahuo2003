@@ -61,12 +61,6 @@ public:
    */
   void redrawCable(QImage& image);
 
-  /**
-   * @brief changeSignal changes the signal of the cable to the desired signal(true or false).
-   * @param newSignal the new signal.
-   */
-  void changeSignal(bool newSignal);
-
   void changeCableColor(QColor color);
 
 protected:
@@ -77,7 +71,6 @@ protected:
   bool moveHorizontal;
   bool moveVertical;
   bool canDraw;
-  bool signal;
   int scaleFactor;
 
 private:

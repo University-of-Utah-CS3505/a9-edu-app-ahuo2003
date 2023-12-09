@@ -35,7 +35,7 @@ void Level::loadLevelData(int levelNumber)
     case 1:
         gates.append(new AndGate(15, 10));
         gates.append(new InGate(5,5, true, Qt::green));
-        gates.append(new InGate(5,15, true, Qt::green));
+        gates.append(new InGate(5,15, false, Qt::green));
         gates.append(new OutGate(30,10));
         break;
 
@@ -89,7 +89,7 @@ void Level::loadLevelData(int levelNumber)
         gates.append(new NotGate(24, 7));
         gates.append(new InGate(1,5,false, Qt::red));
         gates.append(new InGate(1,10,false, Qt::red));
-        gates.append( new InGate(1,15,true, Qt::green));
+        gates.append(new InGate(1,15,true, Qt::green));
         gates.append(new InGate(1,20,true, Qt::green));
         gates.append(new OutGate(31, 7));
         gates.append(new AndGate(12, 3));
@@ -133,14 +133,11 @@ void Level::loadLevelData(int levelNumber)
 
 void Level::connectGates(Gate *andOrNotOut, Gate *input)
 {
-    qDebug() << "Current truth value: " << andOrNotOut->getTruthValue();
     // When we connect the gates, we just add the input gate to the inputGates QList of each And/Or/Not/Out gates || TODO: Handle disconnection
     andOrNotOut->addInputGate(input);
-    qDebug() << andOrNotOut->getInputGates().size();
     // Then we recompute the truth values of all gates to ensure that it is constantly updated to the latest.
     refreshTruthValues();
-    qDebug() << "Updated truth value: " << andOrNotOut->getTruthValue();
-
+    refreshTruthValues();
     //Change the cable color depending on signal
     if (andOrNotOut->getTruthValue()){
         andOrNotOut->setCableColor(Qt::green);
@@ -151,51 +148,87 @@ void Level::connectGates(Gate *andOrNotOut, Gate *input)
 
 }
 
-void Level::checkConnections()
+void Level::disconnectGates(Gate *andOrNotOut, Gate *input)
 {
-    for (Gate* inGate: gates) {
-        for(Gate* gate: gates) {
-            if(inGate == gate) continue;
+    andOrNotOut->removeInputGate(input);
 
-            if(AndGate* andGate = dynamic_cast<AndGate*>(gate)) checkDualInput(inGate, andGate, andGate->getInput1(), andGate->getInput2());
-            else if(OrGate* orGate = dynamic_cast<OrGate*>(gate)) checkDualInput(inGate, orGate, orGate->getInput1(), orGate->getInput2());
-            else if(NotGate* notGate = dynamic_cast<NotGate*>(gate)) checkSingleInput(inGate, notGate, notGate->getInput());
-            else if(OutGate* outGate = dynamic_cast<OutGate*>(gate)) checkSingleInput(inGate, outGate, outGate->getInput());
-        }
+    refreshTruthValues();
+    //Change the cable color depending on signal
+    if (andOrNotOut->getTruthValue()){
+        andOrNotOut->setCableColor(Qt::green);
     }
-
-    //Debugging
-//    for (Gate* gate: gates) {
-//        int size = gate->getInputGates().size();
-//        qDebug() << size;
-//    }
-}
-
-void Level::checkDualInput(Gate *inGate, Gate *andOrGate, const QPoint& input1Pos, const QPoint& input2Pos)
-{
-    // If the end position of the input cable corresponds with the input pixel positions of And/Or gates, that means they are connected
-    if(*(inGate->getCable()->getCableEndPos()) == input1Pos || *(inGate->getCable()->getCableEndPos()) == input2Pos){
-        if (!(andOrGate->getInputGates().contains(inGate))){
-            qDebug() << "Connected to And/Or Gate";
-            connectGates(andOrGate, inGate);
-        }
+    else{
+        andOrNotOut->setCableColor(Qt::red);
     }
 }
+void Level::checkConnections() {
+    for (Gate* gate : gates) {
+        // Create a list to track currently connected input gates
+        QList<Gate*> currentConnectedInputs;
 
-void Level::checkSingleInput(Gate *inGate, Gate *notOutGate, const QPoint &inputPos)
-{
-    // If the end position of the input cable corresponds with the input pixel position of Not/Out gates, that means they are connected
-    if(*(inGate->getCable()->getCableEndPos()) == inputPos){
-        if (!(notOutGate->getInputGates().contains(inGate))){
-            qDebug() << "Connected to Not/Out Gate";
-            connectGates(notOutGate, inGate);
+        // Identify and handle connections
+        updateGateConnections(gate, currentConnectedInputs);
+
+        // Identify and handle disconnections
+        for (Gate* existingInputGate : gate->getInputGates()) {
+            if (!currentConnectedInputs.contains(existingInputGate)) {
+                disconnectGates(gate, existingInputGate);
+            }
+        }
+
+        // Update the gate's input gates to reflect current connections
+        gate->setInputGates(currentConnectedInputs);
+    }
+
+    // After updating all connections, refresh truth values
+    refreshTruthValues();
+}
+
+void Level::updateGateConnections(Gate* gate, QList<Gate*>& connectedInputs) {
+    for (Gate* inGate : gates) {
+        if (gate != inGate) {
+            // Check specific gate types for their input positions
+            if (AndGate* andGate = dynamic_cast<AndGate*>(gate)) {
+                checkAndAddInput(inGate, andGate, andGate->getInput1(), connectedInputs);
+                checkAndAddInput(inGate, andGate, andGate->getInput2(), connectedInputs);
+            } else if (OrGate* orGate = dynamic_cast<OrGate*>(gate)) {
+                checkAndAddInput(inGate, orGate, orGate->getInput1(), connectedInputs);
+                checkAndAddInput(inGate, orGate, orGate->getInput2(), connectedInputs);
+            } else if (NotGate* notGate = dynamic_cast<NotGate*>(gate)) {
+                checkAndAddInput(inGate, notGate, notGate->getInput(), connectedInputs);
+            } else if (OutGate* outGate = dynamic_cast<OutGate*>(gate)) {
+                checkAndAddInput(inGate, outGate, outGate->getInput(), connectedInputs);
+            }
         }
     }
 }
+
+void Level::checkAndAddInput(Gate* inGate, Gate* gate, const QPoint& inputPos, QList<Gate*>& connectedInputs) {
+    if (*(inGate->getCable()->getCableEndPos()) == inputPos) {
+        connectedInputs.append(inGate);
+        connectGates(gate, inGate);
+    }
+}
+
+
 
 void Level::refreshTruthValues()
 {
-    for (Gate* g : gates) {
-        g->setTruthValue(g->computeTruthValue());
-    }
+    bool hasChanged;
+    do {
+        hasChanged = false;
+
+        // Iterate through all gates
+        for (Gate* g : gates) {
+            bool currentTruthValue = g->getTruthValue();
+            bool newTruthValue = g->computeTruthValue();
+
+            if (currentTruthValue != newTruthValue) {
+                g->setTruthValue(newTruthValue);
+                hasChanged = true; // A change has occurred, so another pass is needed
+            }
+        }
+
+        // Repeat until no more changes occur
+    } while (hasChanged);
 }

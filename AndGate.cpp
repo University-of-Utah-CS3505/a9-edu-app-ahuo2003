@@ -12,14 +12,9 @@ AndGate::~AndGate() = default;
 GateType AndGate::getType() const { return this->type; }
 
 bool AndGate::computeTruthValue() const {
-  qDebug()<< "AND GATE SIZE: " << inputGates.size();
-  if(inputGates.isEmpty()) return false;
-  if(inputGates.size() == 1) return false;
-  for (Gate *inputGate : inputGates) {
-      if (!(inputGate->getTruthValue())){
-          qDebug()<< "AND GATE INPUT GATES VALUES - " << inputGate->getTruthValue();
-          return false;
-      }
+  if (inputGates.isEmpty()) return false;
+  for (Gate* inputGate: inputGates) {
+      if (!inputGate || !inputGate->getTruthValue()) return false;
   }
   return true;
 }

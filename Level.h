@@ -33,9 +33,10 @@ private:
   void loadLevelData(int levelNumber);
 
   void connectGates(Gate* output, Gate* input);
+  void disconnectGates(Gate* gate, Gate* input);
   void checkConnections();
-  void checkDualInput(Gate* inGate, Gate* andOrGate, const QPoint& input1Pos, const QPoint& input2Pos);
-  void checkSingleInput(Gate* inGate, Gate* notOutGate, const QPoint& inputPos);
+  void updateGateConnections(Gate* gate, QList<Gate*>& connectedInputs);
+  void checkAndAddInput(Gate* inGate, Gate* gate, const QPoint& inputPos, QList<Gate*>& connectedInputs);
   void refreshTruthValues();
 
 
