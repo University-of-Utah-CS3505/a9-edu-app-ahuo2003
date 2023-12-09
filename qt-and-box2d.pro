@@ -64,6 +64,7 @@ SOURCES += \
     NotGate.cpp \
     OrGate.cpp \
     OutGate.cpp \
+    TrackerWidget.cpp \
     cable.cpp \
     main.cpp \
     MainWindow.cpp
@@ -121,6 +122,7 @@ HEADERS += \
     Level.h \
     MainWindow.h \
     Model.h \
+    TrackerWidget.h \
     cable.h \
     Gate.h \
     InGate.h \

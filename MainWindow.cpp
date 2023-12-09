@@ -71,9 +71,15 @@ void MainWindow::on_andDemo_clicked()
 
 void MainWindow::on_submitTrial_clicked()
 {
-    //emit requestWinningCondition();
     ui->orDemo->show();
     ui->widget->show();
+    for (int i = 0; i < 10; i++){
+        float x_pos = (std::rand() % 1200) + 10;
+        float y_pos = (std::rand() % 60) + 15;
+        float r_rand = (std::rand() % 5) + 1;
+        ui->trackerWidget->createBouncingBox(x_pos, y_pos, 4.0f, 4.0f, 1.0f, 0.3f, r_rand);
+    }
+
 }
 
 void MainWindow::on_orDemo_clicked()
