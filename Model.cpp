@@ -50,10 +50,10 @@ void Model::setAndLevel(int levelSelect)
     currCable = nullptr;
     loadLevel(levelSelect);
     currLevel.renderLevel(*levelView);
+    emit invalidate(*levelView);
 }
 
 
 QPoint Model::mapToImageCoordinates(const QPoint &point, int scaleFactor){
     return QPoint(point.x() / scaleFactor, point.y() / scaleFactor);
 }
-
