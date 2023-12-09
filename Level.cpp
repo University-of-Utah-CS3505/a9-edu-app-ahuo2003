@@ -35,7 +35,7 @@ void Level::loadLevelData(int levelNumber)
     case 1:
         gates.append(new AndGate(15, 10));
         gates.append(new InGate(5,5, true, Qt::green));
-        gates.append(new InGate(5,15, false, Qt::green));
+        gates.append(new InGate(5,15, false, Qt::red));
         gates.append(new OutGate(30,10));
         break;
 
