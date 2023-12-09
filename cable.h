@@ -67,6 +67,8 @@ public:
    */
   void changeSignal(bool newSignal);
 
+  void changeCableColor(QColor color);
+
 protected:
   QPoint *cableEndPos;
   QColor cableColor;

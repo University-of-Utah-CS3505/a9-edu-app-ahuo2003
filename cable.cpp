@@ -115,9 +115,15 @@ void Cable::redrawCable(QImage &image)
   for (QPoint point : path){
     image.setPixelColor(point, cableColor);
   }
+  image.setPixelColor(*cableEndPos, cableEndPosColor);
 }
 
 void Cable::changeSignal(bool newSignal)
 {
   this->signal = newSignal;
+}
+
+void Cable::changeCableColor(QColor color){
+  cableColor = color;
+  cableEndPosColor = color.darker();
 }
