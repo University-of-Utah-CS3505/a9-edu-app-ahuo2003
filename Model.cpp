@@ -41,6 +41,7 @@ void Model::mouseEvent(QMouseEvent *event)
             this->currCable->mouseMoved(*levelView, mousePos);
         }
     }
+    currLevel.renderLevel(*levelView);
     emit invalidate(*levelView);
 }
 
@@ -61,6 +62,7 @@ void Model::setAndLevel(int levelSelect)
     currLevelCables.clear();
     loadLevel(levelSelect);
     currLevel.renderLevel(*levelView);
+    emit invalidate(*levelView);
 }
 
 
