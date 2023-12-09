@@ -19,6 +19,9 @@ void Model::mouseEvent(QMouseEvent *event)
     QPoint mousePos = mapToImageCoordinates(event->pos(), scaleFactor);
     changeCurrentCable(mousePos);
     if (currCable){
+        if (!(currLevelCables.contains(currCable))){
+            currLevelCables.append(currCable);
+        }
         if(event->type() == QEvent::MouseButtonPress){
             this->currCable->mousePressed(*levelView, mousePos);
         }
@@ -26,6 +29,12 @@ void Model::mouseEvent(QMouseEvent *event)
         if(event->type() == QEvent::MouseButtonRelease){
             this->currCable->mouseReleased(*levelView);
             currLevel.checkConnections();
+            currCable = nullptr;
+
+            //Redraws all the cables in case a connection made any change colors
+            for(Cable* c : currLevelCables){
+                c->redrawCable(*levelView);
+            }
         }
 
         if(event->type() == QEvent::MouseMove){
@@ -49,6 +58,7 @@ void Model::setAndLevel(int levelSelect)
 {
     levelView->fill(Qt::transparent);
     currCable = nullptr;
+    currLevelCables.clear();
     loadLevel(levelSelect);
     currLevel.renderLevel(*levelView);
 }

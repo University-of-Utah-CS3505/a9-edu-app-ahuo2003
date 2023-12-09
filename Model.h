@@ -44,6 +44,7 @@ public slots:
 private:
   QImage *levelView;
   Cable *currCable;
+  QList<Cable*> currLevelCables;
   Level currLevel;
   int scaleFactor;
   /**
