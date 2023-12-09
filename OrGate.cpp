@@ -21,6 +21,11 @@ bool OrGate::computeTruthValue() const
   return false;
 }
 
+bool OrGate::isConnected() const
+{
+  return (inputGates.size()==2);
+}
+
 void OrGate::draw(QImage &image) {
   this->painter.begin(&image);
 

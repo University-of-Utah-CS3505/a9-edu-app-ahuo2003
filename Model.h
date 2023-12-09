@@ -4,6 +4,12 @@
 #include "Level.h"
 #include "cable.h"
 #include "qimage.h"
+#include "AndGate.h"
+#include "OrGate.h"
+#include "NotGate.h"
+#include "InGate.h"
+#include "NotGate.h"
+#include "OutGate.h"
 #include <QMouseEvent>
 #include <QObject>
 
@@ -27,6 +33,7 @@ signals:
    * @param levelImage TODO
    */
   void changeLevel(QImage levelImage);
+  void wonLevel();
 
 public slots:
   /**
@@ -40,6 +47,8 @@ public slots:
    * @param levelSelect TODO
    */
   void setAndLevel(int levelSelect);
+
+  void checkWinningCondition();
 
 private:
   QImage *levelView;

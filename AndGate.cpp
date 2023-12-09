@@ -19,6 +19,11 @@ bool AndGate::computeTruthValue() const {
   return true;
 }
 
+bool AndGate::isConnected() const
+{
+  return (inputGates.size()==2);
+}
+
 void AndGate::draw(QImage &image) {
   this->painter.begin(&image);
 

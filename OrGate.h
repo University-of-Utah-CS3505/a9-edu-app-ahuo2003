@@ -37,6 +37,8 @@ public:
    */
   GateType getType() const override;
   bool computeTruthValue() const override;
+  bool isConnected() const override;
+
 };
 
 #endif // ORGATE_H

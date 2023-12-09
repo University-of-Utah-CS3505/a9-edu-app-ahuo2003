@@ -16,6 +16,11 @@ bool InGate::computeTruthValue() const
   return getTruthValue();
 }
 
+bool InGate::isConnected() const
+{
+  return true;
+}
+
 void InGate::draw(QImage &image) {
   this->painter.begin(&image);
 

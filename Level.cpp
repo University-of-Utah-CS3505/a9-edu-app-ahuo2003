@@ -7,7 +7,7 @@
 
 Level::Level()
 {
-
+    winCondition = false;
 }
 
 Level::~Level()
@@ -37,6 +37,7 @@ void Level::loadLevelData(int levelNumber)
         gates.append(new InGate(5,5, true, Qt::green));
         gates.append(new InGate(5,15, true, Qt::green));
         gates.append(new OutGate(30,10));
+        this->winCondition = true;
         break;
 
     case 2:
@@ -135,9 +136,10 @@ void Level::connectGates(Gate *andOrNotOut, Gate *input)
 {
     // When we connect the gates, we just add the input gate to the inputGates QList of each And/Or/Not/Out gates || TODO: Handle disconnection
     andOrNotOut->addInputGate(input);
+
     // Then we recompute the truth values of all gates to ensure that it is constantly updated to the latest.
     refreshTruthValues();
-    refreshTruthValues();
+
     //Change the cable color depending on signal
     if (andOrNotOut->getTruthValue()){
         andOrNotOut->setCableColor(Qt::green);

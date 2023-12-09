@@ -11,7 +11,9 @@ public:
 private:
   QList<Gate*> gates;
   QMap<Gate*, QList<Gate*>> connections;
-//  QList<Cable*> connectedCables;
+  bool currOutput;
+  bool winCondition;
+
   /**
    * @brief addGate TODO
    * @param gate TODO

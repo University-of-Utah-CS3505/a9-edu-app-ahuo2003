@@ -22,7 +22,10 @@ MainWindow::MainWindow(Canvas &canvas, Model &model, QWidget *parent)
 
     connect(ui->circuitCanvas, &Canvas::mouseEventSignal, &model, &Model::mouseEvent);
     connect(&model, &Model::invalidate, ui->circuitCanvas, &Canvas::redrawCanvas);
-    connect(ui->submitTrail, &QPushButton::clicked, this, &MainWindow::on_submitTrial_clicked);
+
+    connect(ui->submitTrail, &QPushButton::clicked, &model, &Model::checkWinningCondition);
+    connect(&model, &Model::wonLevel, this, &MainWindow::on_submitTrial_clicked);
+
     connect(ui->notDemo, &QPushButton::clicked, this, &MainWindow::on_orNot_clicked);
     connect(ui->levelOne, &QPushButton::clicked, this, &MainWindow::levelOne_clicked);
     connect(ui->levelTwo, &QPushButton::clicked, this, &MainWindow::levelTwo_clicked);
@@ -31,6 +34,7 @@ MainWindow::MainWindow(Canvas &canvas, Model &model, QWidget *parent)
     connect(ui->levelFive, &QPushButton::clicked, this, &MainWindow::levelFive_clicked);
     connect(ui->finalTest, &QPushButton::clicked, this, &MainWindow::finalTest_clicked);
     connect(this, &MainWindow::setAndLevel, &model, &Model::setAndLevel);
+    //connect(&model, &Model::checkWinningCondition; )
 }
 
 MainWindow::~MainWindow()
@@ -67,6 +71,7 @@ void MainWindow::on_andDemo_clicked()
 
 void MainWindow::on_submitTrial_clicked()
 {
+    //emit requestWinningCondition();
     ui->orDemo->show();
     ui->widget->show();
 }

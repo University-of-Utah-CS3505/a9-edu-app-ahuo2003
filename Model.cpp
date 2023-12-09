@@ -65,6 +65,16 @@ void Model::setAndLevel(int levelSelect)
     emit invalidate(*levelView);
 }
 
+void Model::checkWinningCondition()
+{
+    for(Gate* gate : currLevel.gates){
+        if (!(gate->isConnected()) || (currLevel.gates.back()->getTruthValue() != currLevel.winCondition)){
+            return;
+        }
+    }
+    emit wonLevel();
+}
+
 
 QPoint Model::mapToImageCoordinates(const QPoint &point, int scaleFactor){
     return QPoint(point.x() / scaleFactor, point.y() / scaleFactor);

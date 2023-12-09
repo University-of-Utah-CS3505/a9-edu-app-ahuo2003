@@ -17,6 +17,11 @@ bool NotGate::computeTruthValue() const
   return !inputGates.front()->getTruthValue();
 }
 
+bool NotGate::isConnected() const
+{
+  return !(inputGates.isEmpty());
+}
+
 void NotGate::draw(QImage &image) {
   this->painter.begin(&image);
 

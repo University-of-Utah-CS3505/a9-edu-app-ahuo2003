@@ -25,6 +25,7 @@ signals:
    */
   void setAndLevel(int levelSelect);
   void redraw();
+  void requestWinningCondition();
 
 public slots:
   /**
