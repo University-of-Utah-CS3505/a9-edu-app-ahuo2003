@@ -467,6 +467,16 @@
       <string/>
      </property>
     </widget>
+    <widget class="TrackerWidget" name="trackerWidget" native="true">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>200</y>
+       <width>1211</width>
+       <height>91</height>
+      </rect>
+     </property>
+    </widget>
    </widget>
    <widget class="Canvas" name="circuitCanvas">
     <property name="enabled">
@@ -592,6 +602,12 @@
    <class>Canvas</class>
    <extends>QLabel</extends>
    <header>Canvas.h</header>
+  </customwidget>
+  <customwidget>
+   <class>TrackerWidget</class>
+   <extends>QWidget</extends>
+   <header>TrackerWidget.h</header>
+   <container>1</container>
   </customwidget>
  </customwidgets>
  <resources/>
