@@ -9,7 +9,11 @@ public:
   ~Level();
 
 private:
-  QList<Gate *> gates;
+  QList<Gate*> gates;
+  QMap<Gate*, QList<Gate*>> connections;
+  bool currOutput;
+  bool winCondition;
+
   /**
    * @brief addGate TODO
    * @param gate TODO
@@ -30,7 +34,15 @@ private:
    */
   void loadLevelData(int levelNumber);
 
-  friend class Model;
+  void connectGates(Gate* output, Gate* input);
+  void disconnectGates(Gate* gate, Gate* input);
+  void checkConnections();
+  void updateGateConnections(Gate* gate, QList<Gate*>& connectedInputs);
+  void checkAndAddInput(Gate* inGate, Gate* gate, const QPoint& inputPos, QList<Gate*>& connectedInputs);
+  void refreshTruthValues();
+
+
+  friend class Model; 
 };
 
 #endif // LEVEL_H

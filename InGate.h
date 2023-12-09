@@ -11,7 +11,7 @@
  */
 class InGate : public Gate {
 public:
-  InGate(int x, int y, QColor cableColor);
+  InGate(int x, int y, bool truthValue, QColor cableColor);
   ~InGate() override;
   QList<QPoint> inGatePixels;
   /**
@@ -25,6 +25,10 @@ public:
    * @return GateType::INPUT.
    */
   GateType getType() const override;
+
+  bool computeTruthValue() const override;
+  bool isConnected() const override;
+
 };
 
 #endif // INGATE_H

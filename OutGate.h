@@ -30,6 +30,10 @@ public:
    * @return GateType::OUTPUT.
    */
   GateType getType() const override;
+
+  bool computeTruthValue() const override;
+  bool isConnected() const override;
+
 };
 
 #endif // OUTGATE_H

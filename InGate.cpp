@@ -1,7 +1,8 @@
 #include "InGate.h"
 
-InGate::InGate(int x, int y, QColor cableColor) : Gate(x, y) {
+InGate::InGate(int x, int y, bool truthValue, QColor cableColor) : Gate(x, y) {
   this->cableColor = cableColor;
+  this->truth = truthValue;
   this->type = GateType::INPUT;
   this->output = Cable(QPoint(x + 2, y), cableColor);
 }
@@ -9,6 +10,16 @@ InGate::InGate(int x, int y, QColor cableColor) : Gate(x, y) {
 InGate::~InGate() = default;
 
 GateType InGate::getType() const { return this->type; }
+
+bool InGate::computeTruthValue() const
+{
+  return getTruthValue();
+}
+
+bool InGate::isConnected() const
+{
+  return true;
+}
 
 void InGate::draw(QImage &image) {
   this->painter.begin(&image);
@@ -28,7 +39,12 @@ void InGate::draw(QImage &image) {
       inGatePixels.append(border);
     }
   }
-  cursorPen.setColor(Qt::red);
+  if (truth){
+    cursorPen.setColor(Qt::green);
+  }
+  else{
+    cursorPen.setColor(Qt::red);
+  }
   painter.setPen(cursorPen);
   painter.drawPoint(center);
 

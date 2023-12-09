@@ -2,12 +2,29 @@
 
 OrGate::OrGate(int x, int y) : Gate(x, y) {
   this->type = GateType::OR;
+  this->cableColor = Qt::red;
+  this->truth = false;
   this->output = Cable(QPoint(x + 3, y), cableColor);
 }
 
 OrGate::~OrGate() = default;
 
 GateType OrGate::getType() const { return this->type; }
+
+bool OrGate::computeTruthValue() const
+{
+  if(inputGates.isEmpty()) return false;
+  if(inputGates.size() == 1) return false;
+  for (Gate* inputGate: inputGates){
+      if(inputGate->getTruthValue()) return true;
+  }
+  return false;
+}
+
+bool OrGate::isConnected() const
+{
+  return (inputGates.size()==2);
+}
 
 void OrGate::draw(QImage &image) {
   this->painter.begin(&image);

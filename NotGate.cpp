@@ -2,12 +2,25 @@
 
 NotGate::NotGate(int x, int y) : Gate(x, y) {
   this->type = GateType::NOT;
+  this->cableColor = Qt::red;
+  this->truth = false;
   this->output = Cable(QPoint(x + 2, y), cableColor);
 }
 
 NotGate::~NotGate() = default;
 
 GateType NotGate::getType() const { return this->type; }
+
+bool NotGate::computeTruthValue() const
+{
+  if(inputGates.isEmpty()) return false;
+  return !inputGates.front()->getTruthValue();
+}
+
+bool NotGate::isConnected() const
+{
+  return !(inputGates.isEmpty());
+}
 
 void NotGate::draw(QImage &image) {
   this->painter.begin(&image);
@@ -50,4 +63,4 @@ void NotGate::draw(QImage &image) {
   this->painter.end();
 }
 
-QPoint NotGate::getInput() { return QPoint(pos_x - 2, pos_y - 1); }
+QPoint NotGate::getInput() { return QPoint(pos_x - 1, pos_y); }

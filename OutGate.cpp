@@ -1,10 +1,21 @@
 #include "OutGate.h"
 
-OutGate::OutGate(int x, int y) : Gate(x, y) { this->type = GateType::OUTPUT; }
+OutGate::OutGate(int x, int y) : Gate(x, y) { this->type = GateType::OUTPUT; this->output = Cable(QPoint(500,500), Qt::transparent);}
 
 OutGate::~OutGate() = default;
 
 GateType OutGate::getType() const { return this->type; }
+
+bool OutGate::computeTruthValue() const
+{
+    if(inputGates.isEmpty()) return false;
+    return inputGates.front()->getTruthValue();
+}
+
+bool OutGate::isConnected() const
+{
+    return !(inputGates.isEmpty());
+}
 
 void OutGate::draw(QImage &image) {
   this->painter.begin(&image);

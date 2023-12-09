@@ -3,12 +3,26 @@
 AndGate::AndGate(int x, int y) : Gate(x, y) {
   this->type = GateType::AND;
   this->cableColor = Qt::red;
+  this->truth = false;
   this->output = Cable(QPoint(x + 3, y), cableColor);
 }
 
 AndGate::~AndGate() = default;
 
 GateType AndGate::getType() const { return this->type; }
+
+bool AndGate::computeTruthValue() const {
+  if (inputGates.isEmpty()) return false;
+  for (Gate* inputGate: inputGates) {
+      if (!inputGate || !inputGate->getTruthValue()) return false;
+  }
+  return true;
+}
+
+bool AndGate::isConnected() const
+{
+  return (inputGates.size()==2);
+}
 
 void AndGate::draw(QImage &image) {
   this->painter.begin(&image);
