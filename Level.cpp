@@ -45,20 +45,23 @@ void Level::loadLevelData(int levelNumber)
         gates.append(new InGate(5,5, false, Qt::red));
         gates.append(new InGate(5,15, true, Qt::green));
         gates.append(new OutGate(30,10));
+        this->winCondition = true;
         break;
 
     case 3:
         gates.append(new NotGate(15, 10));
-        gates.append(new InGate(5,10, false,  Qt::red));
+        gates.append(new InGate(5,10, false, Qt::red));
         gates.append(new OutGate(30,10));
+        this->winCondition = true;
         break;
 
     case 4:
         gates.append(new NotGate(10, 10));
         gates.append(new InGate(4,10,false, Qt::red));
         gates.append(new InGate(4,20,true, Qt::green));
-        gates.append(new OutGate(29, 15));
         gates.append(new AndGate(18, 15));
+        gates.append(new OutGate(29, 15));
+        this->winCondition = false;
         break;
 
     case 5:
@@ -66,68 +69,78 @@ void Level::loadLevelData(int levelNumber)
         gates.append(new InGate(3,5,false, Qt::red));
         gates.append(new InGate(3,12,true, Qt::green));
         gates.append(new InGate(3,17,false, Qt::red));
-        gates.append(new OutGate(30, 12));
         gates.append(new AndGate(14, 8));
         gates.append(new AndGate(22, 13));
+        gates.append(new OutGate(30, 12));
+        this->winCondition = false;
         break;
     case 6:
         gates.append(new NotGate(6, 1));
         gates.append(new NotGate(6, 9));
         gates.append(new NotGate(24, 7));
-        gates.append(new InGate(1,1,true, Qt::green));
-        gates.append(new InGate(1,5,false, Qt::red));
-        gates.append(new InGate(1,9,true, Qt::green));
-        gates.append(new InGate(1,13,false, Qt::red));
-        gates.append(new OutGate(31, 7));
+        gates.append(new InGate(1,1, false, Qt::red));
+        gates.append(new InGate(1,5, false, Qt::red));
+        gates.append(new InGate(1,9, false, Qt::red));
+        gates.append(new InGate(1,13, false, Qt::red));
         gates.append(new AndGate(12, 3));
         gates.append(new AndGate(18, 7));
         gates.append(new OrGate(12, 11));
+        gates.append(new OutGate(31, 7));
+        this->winCondition = false;
         break;
 
     case 7:
         gates.append(new NotGate(6, 1));
         gates.append(new NotGate(6, 9));
         gates.append(new NotGate(24, 7));
-        gates.append(new InGate(1,5,false, Qt::red));
-        gates.append(new InGate(1,10,false, Qt::red));
-        gates.append(new InGate(1,15,true, Qt::green));
-        gates.append(new InGate(1,20,true, Qt::green));
-        gates.append(new OutGate(31, 7));
+        gates.append(new InGate(1,5, false,  Qt::red));
+        gates.append(new InGate(1,10, false,  Qt::red));
+        gates.append( new InGate(1,15, false,  Qt::red));
+        gates.append(new InGate(1,20, false, Qt::red));
         gates.append(new AndGate(12, 3));
         gates.append(new AndGate(18, 7));
         gates.append(new OrGate(12, 11));
         gates.append(new OrGate(15, 20));
+        gates.append(new OutGate(31, 7));
+        this->winCondition = false;
         break;
 
     case 8:
         gates.append(new NotGate(6, 1));
-        gates.append(new NotGate(12, 25));
-        gates.append(new NotGate(20, 28));
-        gates.append(new InGate(1,1, true, Qt::green));
-        gates.append(new InGate(1,30, true, Qt::green));
-        gates.append(new InGate(1,13,false, Qt::red));
-        gates.append(new InGate(1,23,false, Qt::red));
-        gates.append(new OutGate(31, 15));
+        gates. append(new NotGate(9, 25));
+        gates.append(new NotGate(13, 28));
+        gates.append(new InGate(1,1, false, Qt::red));
+        gates.append(new InGate(1,5, false, Qt::red));
+        gates.append(new InGate(1,30, false, Qt::red));
+        gates.append(new InGate(1,13, false, Qt::red));
+        gates.append(new InGate(1,23, false, Qt::red));
+        gates.append(new InGate(1,18, false, Qt::red));
+        gates.append(new InGate(1,27, false, Qt::red));
         gates.append(new AndGate(12, 3));
-        gates.append(new OrGate(18, 13));
-        gates.append(new OrGate(20, 22));
+        gates.append(new AndGate(24, 15));
+        gates.append(new AndGate(20, 26));
+        gates.append(new OrGate(15, 13));
+        gates.append(new OrGate(15, 22));
+        gates.append(new OrGate(20, 7));
+        gates.append(new OutGate(31, 15));
+        this->winCondition = false;
         break;
 
     case 9:
-        gates.append(new InGate(1,1,true, Qt::red));
-        gates.append(new InGate(1,3,true, Qt::red));
-        gates.append(new InGate(1,5,true, Qt::red));
-        gates.append(new InGate(1,7,true, Qt::red));
-        gates.append(new InGate(1,9,true, Qt::red));
-        gates.append(new InGate(1,11,true, Qt::red));
-        gates.append(new InGate(1,13,true, Qt::red));
-        gates.append(new InGate(1,15,true, Qt::red));
-        gates.append(new InGate(1,17,true, Qt::red));
-        gates.append(new InGate(1,19,true, Qt::red));
-        gates.append(new InGate(1,21,true, Qt::red));
-        gates.append(new InGate(1,24,true, Qt::red));
-        gates.append(new InGate(1,27,true, Qt::red));
-        gates.append(new InGate(1,30,true, Qt::red));
+        gates.append(new InGate(1,1, false, Qt::red));
+        gates.append(new InGate(1,3, false, Qt::red));
+        gates.append(new InGate(1,5, false, Qt::red));
+        gates.append(new InGate(1,7, false, Qt::red));
+        gates.append(new InGate(1,9, false, Qt::red));
+        gates.append(new InGate(1,11, false, Qt::red));
+        gates.append(new InGate(1,13, false, Qt::red));
+        gates.append(new InGate(1,15, false, Qt::red));
+        gates.append(new InGate(1,17, false, Qt::red));
+        gates.append(new InGate(1,19, false, Qt::red));
+        gates.append(new InGate(1,21, false, Qt::red));
+        gates.append(new InGate(1,24, false, Qt::red));
+        gates.append(new InGate(1,27, false, Qt::red));
+        gates.append(new InGate(1,30, false, Qt::red));
         gates.append(new AndGate(9, 2));
         gates.append(new AndGate(9, 7));
         gates.append(new AndGate(9, 12));
@@ -143,6 +156,7 @@ void Level::loadLevelData(int levelNumber)
         gates.append(new OrGate(17, 13));
         gates.append(new NotGate(14, 29));
         gates.append(new OutGate(31, 15));
+        this->winCondition = false;
         break;
     }
 }
