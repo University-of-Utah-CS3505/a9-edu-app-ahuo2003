@@ -35,7 +35,7 @@ void Level::loadLevelData(int levelNumber)
     case 1:
         gates.append(new AndGate(15, 10));
         gates.append(new InGate(5,5, true, Qt::green));
-        gates.append(new InGate(5,15, false, Qt::red));
+        gates.append(new InGate(5,15, true, Qt::green));
         gates.append(new OutGate(30,10));
         break;
 
@@ -53,21 +53,21 @@ void Level::loadLevelData(int levelNumber)
         break;
 
     case 4:
-        gates.append(new NotGate(7, 1));
-        gates.append(new InGate(1,1,false, Qt::red));
-        gates.append(new InGate(1,5,true, Qt::green));
-        gates.append(new OutGate(25, 3));
-        gates.append(new AndGate(15, 3));
+        gates.append(new NotGate(10, 10));
+        gates.append(new InGate(4,10,false, Qt::red));
+        gates.append(new InGate(4,20,true, Qt::green));
+        gates.append(new OutGate(29, 15));
+        gates.append(new AndGate(18, 15));
         break;
 
     case 5:
-        gates.append(new NotGate(6, 1));
-        gates.append(new InGate(1,1,false, Qt::red));
-        gates.append(new InGate(1,5,true, Qt::green));
-        gates.append(new InGate(1,9,false, Qt::red));
-        gates.append(new OutGate(30, 5));
-        gates.append(new AndGate(12, 3));
-        gates.append(new AndGate(22, 5));
+        gates.append(new NotGate(8, 5));
+        gates.append(new InGate(3,5,false, Qt::red));
+        gates.append(new InGate(3,12,true, Qt::green));
+        gates.append(new InGate(3,17,false, Qt::red));
+        gates.append(new OutGate(30, 12));
+        gates.append(new AndGate(14, 8));
+        gates.append(new AndGate(22, 13));
         break;
     case 6:
         gates.append(new NotGate(6, 1));
