@@ -38,9 +38,6 @@ public:
   GateType getType() const override;
 
   bool computeTruthValue() const override;
-
-private:
-    QList<Gate*> inputGates;
 };
 
 #endif // ANDGATE_H
