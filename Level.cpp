@@ -61,7 +61,7 @@ void Level::loadLevelData(int levelNumber)
         gates.append(new InGate(4,20,true, Qt::green));
         gates.append(new AndGate(18, 15));
         gates.append(new OutGate(29, 15));
-        this->winCondition = false;
+        this->winCondition = true;
         break;
 
     case 5:
