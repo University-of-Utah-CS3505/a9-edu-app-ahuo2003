@@ -11,7 +11,7 @@
  */
 class InGate : public Gate {
 public:
-  InGate(int x, int y, QColor cableColor);
+  InGate(int x, int y, bool truthValue, QColor cableColor);
   ~InGate() override;
   QList<QPoint> inGatePixels;
   /**
