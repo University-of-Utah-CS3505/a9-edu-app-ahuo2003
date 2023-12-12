@@ -595,13 +595,53 @@ background-color: rgb(0, 85, 127);</string>
      <string>You MUST connect every gate</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="backButton">
+    <property name="geometry">
+     <rect>
+      <x>1130</x>
+      <y>480</y>
+      <width>121</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>MV Boli</family>
+      <pointsize>22</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Return</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="warningMessage">
+    <property name="geometry">
+     <rect>
+      <x>310</x>
+      <y>300</y>
+      <width>641</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>MV Boli</family>
+      <pointsize>22</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Your Submittion Is Incorrect, Try Again.</string>
+    </property>
+   </widget>
    <zorder>backGround</zorder>
+   <zorder>backButton</zorder>
    <zorder>levelCompt</zorder>
    <zorder>border</zorder>
    <zorder>circuitCanvas</zorder>
    <zorder>submitTrail</zorder>
    <zorder>widget</zorder>
    <zorder>testStart</zorder>
+   <zorder>warningMessage</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

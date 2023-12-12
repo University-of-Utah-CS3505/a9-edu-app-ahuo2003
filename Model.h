@@ -34,6 +34,7 @@ signals:
    */
   void changeLevel(QImage levelImage);
   void wonLevel();
+  void levelLost();
 
 public slots:
   /**

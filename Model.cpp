@@ -69,6 +69,7 @@ void Model::checkWinningCondition()
 {
     for(Gate* gate : currLevel.gates){
         if (!(gate->isConnected()) || (currLevel.gates.back()->getTruthValue() != currLevel.winCondition)){
+            emit levelLost();
             return;
         }
     }
