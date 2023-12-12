@@ -579,22 +579,6 @@ background-color: rgb(0, 85, 127);</string>
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="levelCompt">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>520</y>
-      <width>161</width>
-      <height>71</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(0, 85, 127);</string>
-    </property>
-    <property name="text">
-     <string>You MUST connect every gate</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="backButton">
     <property name="geometry">
      <rect>
@@ -635,7 +619,6 @@ background-color: rgb(0, 85, 127);</string>
    </widget>
    <zorder>backGround</zorder>
    <zorder>backButton</zorder>
-   <zorder>levelCompt</zorder>
    <zorder>border</zorder>
    <zorder>circuitCanvas</zorder>
    <zorder>submitTrail</zorder>
