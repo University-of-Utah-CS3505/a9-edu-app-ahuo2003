@@ -2,7 +2,7 @@
 #include <QApplication>
 /*
  * Names: Hunter Keating, Hai Minh Pham, Thomas Kuhrke Limia, Andy Huo, Nam Nguyen, Emmanuel Luna
- * Assignment: A8: Sprite Editor
+ * Assignment: A9: Educational Program.
  * Description: This program is an educational application that teaches how basic
  * logical gates work. The application contains 3 tutorial levels that shows the
  * user how each gate works(AND/OR/NOT), followed by 6 levels that get more difficult
