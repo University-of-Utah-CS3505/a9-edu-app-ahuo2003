@@ -11,15 +11,9 @@ InGate::~InGate() = default;
 
 GateType InGate::getType() const { return this->type; }
 
-bool InGate::computeTruthValue() const
-{
-  return getTruthValue();
-}
+bool InGate::computeTruthValue() const { return getTruthValue(); }
 
-bool InGate::isConnected() const
-{
-  return true;
-}
+bool InGate::isConnected() const { return true; }
 
 void InGate::draw(QImage &image) {
   this->painter.begin(&image);
@@ -39,10 +33,9 @@ void InGate::draw(QImage &image) {
       inGatePixels.append(border);
     }
   }
-  if (truth){
+  if (truth) {
     cursorPen.setColor(Qt::green);
-  }
-  else{
+  } else {
     cursorPen.setColor(Qt::red);
   }
   painter.setPen(cursorPen);

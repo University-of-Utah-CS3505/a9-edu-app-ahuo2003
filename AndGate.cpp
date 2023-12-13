@@ -12,17 +12,16 @@ AndGate::~AndGate() = default;
 GateType AndGate::getType() const { return this->type; }
 
 bool AndGate::computeTruthValue() const {
-  if (inputGates.isEmpty()) return false;
-  for (Gate* inputGate: inputGates) {
-      if (!inputGate || !inputGate->getTruthValue()) return false;
+  if (inputGates.isEmpty())
+    return false;
+  for (Gate *inputGate : inputGates) {
+    if (!inputGate || !inputGate->getTruthValue())
+      return false;
   }
   return true;
 }
 
-bool AndGate::isConnected() const
-{
-  return (inputGates.size()==2);
-}
+bool AndGate::isConnected() const { return (inputGates.size() == 2); }
 
 void AndGate::draw(QImage &image) {
   this->painter.begin(&image);

@@ -108,16 +108,14 @@ void Cable::changeScaleFactor(int newScaleFactor) {
 
 QPoint *Cable::getCableEndPos() const { return cableEndPos; }
 
-
-void Cable::redrawCable(QImage &image)
-{
-  for (QPoint point : path){
+void Cable::redrawCable(QImage &image) {
+  for (QPoint point : path) {
     image.setPixelColor(point, cableColor);
   }
   image.setPixelColor(*cableEndPos, cableEndPosColor);
 }
 
-void Cable::changeCableColor(QColor color){
+void Cable::changeCableColor(QColor color) {
   cableColor = color;
   cableEndPosColor = color.darker();
 }

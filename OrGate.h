@@ -48,7 +48,6 @@ public:
    * @return the connection status, as a true/false variable.
    */
   bool isConnected() const override;
-
 };
 
 #endif // ORGATE_H

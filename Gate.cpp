@@ -26,22 +26,13 @@ QColor Gate::getCableColor() const { return this->cableColor; }
 
 Cable *Gate::getCable() { return &(this->output); }
 
-void Gate::addInputGate(Gate* gate)
-{
-  if(gate != nullptr) inputGates.append(gate);
+void Gate::addInputGate(Gate *gate) {
+  if (gate != nullptr)
+    inputGates.append(gate);
 }
 
-void Gate::removeInputGate(Gate *input)
-{
-  inputGates.removeAll(input);
-}
+void Gate::removeInputGate(Gate *input) { inputGates.removeAll(input); }
 
-const QList<Gate *> &Gate::getInputGates()
-{
-  return inputGates;
-}
+const QList<Gate *> &Gate::getInputGates() { return inputGates; }
 
-void Gate::setInputGates(QList<Gate *> &input)
-{
-  inputGates = input;
-}
+void Gate::setInputGates(QList<Gate *> &input) { inputGates = input; }

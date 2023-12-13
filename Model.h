@@ -1,20 +1,20 @@
 #ifndef MODEL_H
 #define MODEL_H
 
+#include "AndGate.h"
+#include "InGate.h"
 #include "Level.h"
+#include "NotGate.h"
+#include "OrGate.h"
+#include "OutGate.h"
 #include "cable.h"
 #include "qimage.h"
-#include "AndGate.h"
-#include "OrGate.h"
-#include "NotGate.h"
-#include "InGate.h"
-#include "NotGate.h"
-#include "OutGate.h"
 #include <QMouseEvent>
 #include <QObject>
 
 /**
- * @brief The Model class handles all the operations for the Educational Project to function as desired.
+ * @brief The Model class handles all the operations for the Educational Project
+ * to function as desired.
  */
 class Model : public QObject {
   Q_OBJECT
@@ -55,7 +55,7 @@ public slots:
    */
   void mouseEvent(QMouseEvent *event);
 
-    /**
+  /**
    * @brief setAndLevel sets the level.
    * @param levelSelect level identifier.
    */
@@ -69,7 +69,7 @@ public slots:
 private:
   QImage *levelView;
   Cable *currCable;
-  QList<Cable*> currLevelCables;
+  QList<Cable *> currLevelCables;
   Level currLevel;
   int scaleFactor;
 
@@ -90,7 +90,8 @@ private:
   void loadLevel(int levelNum);
 
   /**
-   * @brief changeCurrentCable changes the current cable based on the mouse position.
+   * @brief changeCurrentCable changes the current cable based on the mouse
+   * position.
    * @param mousePos mouse position.
    */
   void changeCurrentCable(QPoint mousePos);

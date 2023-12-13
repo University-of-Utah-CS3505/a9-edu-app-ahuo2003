@@ -27,7 +27,8 @@ public:
   void setPos(int x, int y);
 
   /**
-   * @brief setTruthValue set the output of the gate based on the input(true or false).
+   * @brief setTruthValue set the output of the gate based on the input(true or
+   * false).
    * @param val true or false output
    */
   void setTruthValue(bool val);
@@ -92,26 +93,25 @@ public:
    * @brief addInputGate adds an input gate
    * @param gate a pointer to the added gate
    */
-  void addInputGate(Gate* gate);
+  void addInputGate(Gate *gate);
 
   /**
    * @brief removeInputGate removes input gate
    * @param input a pointer to the removed gate
    */
-  void removeInputGate(Gate* input);
+  void removeInputGate(Gate *input);
 
   /**
    * @brief getInputGates returns a list of input gates
    * @return a QList of input gates
    */
-  const QList<Gate*>& getInputGates();
+  const QList<Gate *> &getInputGates();
 
   /**
    * @brief setInputGates sets a list of input gates
    * @param input a QList of input gates
    */
-  void setInputGates(QList<Gate*>& input);
-
+  void setInputGates(QList<Gate *> &input);
 
 protected:
   int pos_x;
@@ -121,7 +121,7 @@ protected:
   QPainter painter;
   GateType type;
   Cable output;
-  QList<Gate*> inputGates;
+  QList<Gate *> inputGates;
 };
 
 #endif // GATE_H

@@ -59,7 +59,7 @@ public:
    * @brief redrawCable redraws the cable based on its path.
    * @param image the image to be drawn on.
    */
-  void redrawCable(QImage& image);
+  void redrawCable(QImage &image);
 
   /**
    * @brief changeCableColor changes the color of the cable.

@@ -11,20 +11,19 @@ OrGate::~OrGate() = default;
 
 GateType OrGate::getType() const { return this->type; }
 
-bool OrGate::computeTruthValue() const
-{
-  if(inputGates.isEmpty()) return false;
-  if(inputGates.size() == 1) return false;
-  for (Gate* inputGate: inputGates){
-      if(inputGate->getTruthValue()) return true;
+bool OrGate::computeTruthValue() const {
+  if (inputGates.isEmpty())
+    return false;
+  if (inputGates.size() == 1)
+    return false;
+  for (Gate *inputGate : inputGates) {
+    if (inputGate->getTruthValue())
+      return true;
   }
   return false;
 }
 
-bool OrGate::isConnected() const
-{
-  return (inputGates.size()==2);
-}
+bool OrGate::isConnected() const { return (inputGates.size() == 2); }
 
 void OrGate::draw(QImage &image) {
   this->painter.begin(&image);
