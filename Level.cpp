@@ -162,7 +162,7 @@ void Level::loadLevelData(int levelNumber) {
 
 void Level::connectGates(Gate *andOrNotOut, Gate *input) {
   // When we connect the gates, we just add the input gate to the inputGates
-  // QList of each And/Or/Not/Out gates || TODO: Handle disconnection
+  // QList of each And/Or/Not/Out gates
   andOrNotOut->addInputGate(input);
 
   // Then we recompute the truth values of all gates to ensure that it is
