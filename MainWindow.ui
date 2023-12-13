@@ -644,6 +644,7 @@ NOT Gate: Returns the inverse
      <string/>
     </property>
    </widget>
+   <zorder>warningMessage</zorder>
    <zorder>backGround</zorder>
    <zorder>expectedResult</zorder>
    <zorder>guide</zorder>
@@ -652,7 +653,6 @@ NOT Gate: Returns the inverse
    <zorder>submitTrail</zorder>
    <zorder>widget</zorder>
    <zorder>testStart</zorder>
-   <zorder>warningMessage</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

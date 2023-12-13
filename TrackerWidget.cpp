@@ -5,23 +5,12 @@ TrackerWidget::TrackerWidget(QWidget *parent) : QWidget(parent),
     world(b2Vec2(0.0f, 10.0f)),
     timer(this)
 {
-    //    colors.append(Qt::white);
-    //    colors.append(Qt::black);
     colors.append(Qt::red);
     colors.append(Qt::darkRed);
     colors.append(Qt::green);
     colors.append(Qt::darkGreen);
-    //    colors.append(Qt::blue);
-    //    colors.append(Qt::darkBlue);
     colors.append(Qt::cyan);
     colors.append(Qt::darkCyan);
-    //    colors.append(Qt::magenta);
-    //    colors.append(Qt::darkMagenta);
-    //    colors.append(Qt::yellow);
-    //    colors.append(Qt::darkYellow);
-    //    colors.append(Qt::gray);
-    //    colors.append(Qt::lightGray);
-    //    colors.append(Qt::darkGray);
 
     // Define the ground body.
     b2BodyDef groundBodyDef;

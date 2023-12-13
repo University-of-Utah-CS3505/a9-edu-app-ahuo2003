@@ -19,15 +19,47 @@ public:
   Gate(int x = 0, int y = 0);
   virtual ~Gate();
 
-  // Setters
+  /**
+   * @brief setPos set the position(x,y) of the gate onto the canvas.
+   * @param x x-coordinate.
+   * @param y y-coordinate.
+   */
   void setPos(int x, int y);
+
+  /**
+   * @brief setTruthValue set the output of the gate based on the input(true or false).
+   * @param val true or false output
+   */
   void setTruthValue(bool val);
+
+  /**
+   * @brief setCableColor set the color of the color based on the truth value.
+   * @param color red(false) or green(true) color for cables.
+   */
   void setCableColor(const QColor &color);
 
-  // Getters
+  /**
+   * @brief getPos get the position of the gate.
+   * @return the position of the gate.
+   */
   QPoint getPos() const;
+
+  /**
+   * @brief getTruthValue get the truth value of the output of the gate.
+   * @return true of false depends on the output.
+   */
   bool getTruthValue() const;
+
+  /**
+   * @brief getCableColor get the color of the cables for other operations.
+   * @return the color of the current cable from the gate.
+   */
   QColor getCableColor() const;
+
+  /**
+   * @brief getCable get the cable for extending or deleting the current cable.
+   * @return the position of the cable.
+   */
   Cable *getCable();
 
   /**
