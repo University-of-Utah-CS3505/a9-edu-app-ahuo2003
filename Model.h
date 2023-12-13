@@ -33,7 +33,15 @@ signals:
    * @param levelImage image of the level.
    */
   void changeLevel(QImage levelImage);
+
+  /**
+   * @brief wonLevel lets the view know that the player won the level.
+   */
   void wonLevel();
+
+  /**
+   * @brief levelLost lets the view know that the player lost the level.
+   */
   void levelLost();
 
 public slots:
@@ -49,6 +57,9 @@ public slots:
    */
   void setAndLevel(int levelSelect);
 
+  /**
+   * @brief checkWinningCondition checks if the player won the level.
+   */
   void checkWinningCondition();
 
 private:
