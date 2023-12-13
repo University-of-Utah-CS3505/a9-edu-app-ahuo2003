@@ -75,18 +75,19 @@ void Level::loadLevelData(int levelNumber)
         gates.append(new OutGate(30, 12));
         this->winCondition = false;
         break;
+
     case 6:
-        gates.append(new NotGate(6, 1));
-        gates.append(new NotGate(6, 9));
-        gates.append(new NotGate(24, 7));
-        gates.append(new InGate(1,1, false, Qt::red));
-        gates.append(new InGate(1,5, false, Qt::red));
-        gates.append(new InGate(1,9, false, Qt::red));
-        gates.append(new InGate(1,13, false, Qt::red));
-        gates.append(new AndGate(12, 3));
-        gates.append(new AndGate(18, 7));
-        gates.append(new OrGate(12, 11));
-        gates.append(new OutGate(31, 7));
+        gates.append(new NotGate(6, 8));
+        gates.append(new NotGate(6, 17));
+        gates.append(new NotGate(24, 12));
+        gates.append(new InGate(1,6, false, Qt::red));
+        gates.append(new InGate(1,11, false, Qt::red));
+        gates.append(new InGate(1,16, false, Qt::red));
+        gates.append(new InGate(1,21, false, Qt::red));
+        gates.append(new AndGate(12, 9));
+        gates.append(new AndGate(18, 12));
+        gates.append(new OrGate(12, 16));
+        gates.append(new OutGate(30, 12));
         this->winCondition = false;
         break;
 

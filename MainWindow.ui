@@ -617,6 +617,7 @@ background-color: rgb(0, 85, 127);</string>
      <string>Your Submittion Is Incorrect, Try Again.</string>
     </property>
    </widget>
+   <zorder>warningMessage</zorder>
    <zorder>backGround</zorder>
    <zorder>backButton</zorder>
    <zorder>border</zorder>
@@ -624,7 +625,6 @@ background-color: rgb(0, 85, 127);</string>
    <zorder>submitTrail</zorder>
    <zorder>widget</zorder>
    <zorder>testStart</zorder>
-   <zorder>warningMessage</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

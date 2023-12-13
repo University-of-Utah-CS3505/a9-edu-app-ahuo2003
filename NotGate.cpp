@@ -26,7 +26,8 @@ void NotGate::draw(QImage &image) {
   this->painter.begin(&image);
 
   QPen cursorPen = painter.pen();
-  cursorPen.setColor(Qt::red);
+  QColor color(Qt::red);
+  cursorPen.setColor(color.darker(120));
   painter.setPen(cursorPen);
 
   // Get and draw the center of the gate.
