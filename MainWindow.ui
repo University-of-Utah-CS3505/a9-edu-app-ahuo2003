@@ -602,9 +602,9 @@ background-color: rgb(0, 85, 127);</string>
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>210</y>
+      <y>240</y>
       <width>271</width>
-      <height>321</height>
+      <height>271</height>
      </rect>
     </property>
     <property name="font">
@@ -619,11 +619,9 @@ background-color: rgb(0, 85, 127);</string>
 	are true,
 	ow, false
 OR Gate: Returns True (Green)
-	if both or one
-	are true. If all
-	are false then
-	return false
-	ow. true
+	if one or both 
+	inputs are true, 
+	ow, false
 NOT Gate: Returns the inverse
 	of an input</string>
     </property>
