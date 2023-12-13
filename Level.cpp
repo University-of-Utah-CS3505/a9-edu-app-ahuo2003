@@ -89,6 +89,7 @@ void Level::loadLevelData(int levelNumber) {
     gates.append(new NotGate(6, 1));
     gates.append(new NotGate(6, 9));
     gates.append(new NotGate(24, 7));
+    gates.append(new InGate(1, 1, false, Qt::red));
     gates.append(new InGate(1, 5, false, Qt::red));
     gates.append(new InGate(1, 10, false, Qt::red));
     gates.append(new InGate(1, 15, false, Qt::red));
