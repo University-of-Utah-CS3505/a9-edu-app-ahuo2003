@@ -23,14 +23,14 @@ public:
 
 signals:
   /**
-   * @brief invalidate TODO
-   * @param img TODO
+   * @brief invalidate updates the view.
+   * @param img new image to be drawn.
    */
   void invalidate(QImage img);
 
   /**
-   * @brief changeLevel TODO
-   * @param levelImage TODO
+   * @brief changeLevel changes the level.
+   * @param levelImage image of the level.
    */
   void changeLevel(QImage levelImage);
   void wonLevel();
@@ -38,14 +38,14 @@ signals:
 
 public slots:
   /**
-   * @brief mouseEvent TODO
-   * @param event TODO
+   * @brief mouseEvent handler for different types of mouse events.
+   * @param event type of event (pressed, released, and moved).
    */
   void mouseEvent(QMouseEvent *event);
 
     /**
-   * @brief setAndLevel TODO
-   * @param levelSelect TODO
+   * @brief setAndLevel sets the level.
+   * @param levelSelect level identifier.
    */
   void setAndLevel(int levelSelect);
 
@@ -57,6 +57,7 @@ private:
   QList<Cable*> currLevelCables;
   Level currLevel;
   int scaleFactor;
+
   /**
    * @brief mapToImageCoordinates converts mouse coordinates to the model's
    * image coordinates.
@@ -68,14 +69,14 @@ private:
   QPoint mapToImageCoordinates(const QPoint &point, int scaleFactor);
 
   /**
-   * @brief loadLevel TODO
-   * @param levelNum TODO
+   * @brief loadLevel loads the level.
+   * @param levelNum level identifier.
    */
   void loadLevel(int levelNum);
 
   /**
-   * @brief changeCurrentCable TODO
-   * @param mousePos TODO
+   * @brief changeCurrentCable changes the current cable based on the mouse position.
+   * @param mousePos mouse position.
    */
   void changeCurrentCable(QPoint mousePos);
 
