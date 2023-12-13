@@ -76,12 +76,6 @@ public slots:
     void on_submitTrial_clicked();
 
     /**
-   * @brief on_backButton_clicked_clicked
-   * Slot for handling the back button click event.
-   */
-    void on_backButton_clicked();
-
-    /**
    * @brief warningDisplay
    * Slot for displaying a warning.
    */
@@ -131,11 +125,5 @@ private:
    * Initializes the drawing canvas.
    */
     void initCanvas();
-
-    /**
-   * @brief initPreviews
-   * Initializes the preview animation playback frame.
-   */
-    void initPreviews();
 };
 #endif // MAINWINDOW_H

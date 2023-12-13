@@ -579,25 +579,6 @@ background-color: rgb(0, 85, 127);</string>
      <string/>
     </property>
    </widget>
-   <widget class="QPushButton" name="backButton">
-    <property name="geometry">
-     <rect>
-      <x>1130</x>
-      <y>480</y>
-      <width>121</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>MV Boli</family>
-      <pointsize>22</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>Return</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="warningMessage">
     <property name="geometry">
      <rect>
@@ -614,11 +595,58 @@ background-color: rgb(0, 85, 127);</string>
      </font>
     </property>
     <property name="text">
-     <string>Your Submittion Is Incorrect, Try Again.</string>
+     <string>Your Submittion Is Incorrect, Try Again</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="guide">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>230</y>
+      <width>271</width>
+      <height>281</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>MV Boli</family>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>AND Gate: Returns True (Green) 
+	iff both inputs
+	are true
+OR Gate: Returns False (Red)
+	iff both inputs
+	are false,
+	ow. true
+NOT Gate: Returns the inverse
+	of an input</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="expectedResult">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>150</y>
+      <width>241</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>MV Boli</family>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string/>
     </property>
    </widget>
    <zorder>backGround</zorder>
-   <zorder>backButton</zorder>
+   <zorder>expectedResult</zorder>
+   <zorder>guide</zorder>
    <zorder>border</zorder>
    <zorder>circuitCanvas</zorder>
    <zorder>submitTrail</zorder>

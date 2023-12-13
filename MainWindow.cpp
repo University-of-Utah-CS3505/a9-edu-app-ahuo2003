@@ -28,7 +28,6 @@ MainWindow::MainWindow(Model &model, QWidget *parent)
     connect(ui->submitTrail, &QPushButton::clicked, &model, &Model::checkWinningCondition);
     connect(&model, &Model::wonLevel, this, &MainWindow::on_submitTrial_clicked);
     connect(&model, &Model::levelLost, this, &MainWindow::warningDisplay);
-    connect(ui->backButton, &QPushButton::clicked, this, &MainWindow::on_backButton_clicked);
     connect(ui->notDemo, &QPushButton::clicked, this, &MainWindow::on_orNot_clicked);
     connect(ui->levelOne, &QPushButton::clicked, this, &MainWindow::levelOne_clicked);
     connect(ui->levelTwo, &QPushButton::clicked, this, &MainWindow::levelTwo_clicked);
@@ -84,6 +83,7 @@ void MainWindow::on_andDemo_clicked()
     // Hide the main widget, show 'orDemo' widget, and set the level to 1
     ui->widget->hide();
     ui->orDemo->show();
+    ui->expectedResult->setText("Expected Result: True/Green");
     emit setAndLevel(1);
 }
 
@@ -99,18 +99,12 @@ void MainWindow::on_submitTrial_clicked()
     }
 }
 
-void MainWindow::on_backButton_clicked()
-{
-    // Show the main widget and set the level to 10
-    ui->widget->show();
-    emit setAndLevel(10);
-}
-
 void MainWindow::on_orDemo_clicked()
 {
     // Show 'notDemo' widget, hide the main widget, and set the level to 2
     ui->notDemo->show();
     ui->widget->hide();
+    ui->expectedResult->setText("Expected Result: True/Green");
     emit setAndLevel(2);
 }
 
@@ -119,6 +113,7 @@ void MainWindow::on_orNot_clicked()
     // Show 'levelOne' widget, hide the main widget, and set the level to 3
     ui->levelOne->show();
     ui->widget->hide();
+    ui->expectedResult->setText("Expected Result: True/Green");
     emit setAndLevel(3);
 }
 
@@ -127,6 +122,7 @@ void MainWindow::levelOne_clicked()
     // Show 'levelTwo' widget, hide the main widget, and set the level to 4
     ui->levelTwo->show();
     ui->widget->hide();
+    ui->expectedResult->setText("Expected Result: True/Green");
     emit setAndLevel(4);
 }
 
@@ -135,6 +131,7 @@ void MainWindow::levelTwo_clicked()
     // Show 'levelThree' widget, hide the main widget, and set the level to 5
     ui->levelThree->show();
     ui->widget->hide();
+    ui->expectedResult->setText("Expected Result: False/Red");
     emit setAndLevel(5);
 }
 
@@ -143,6 +140,7 @@ void MainWindow::levelThree_clicked()
     // Show 'levelFour' widget, hide the main widget, and set the level to 6
     ui->levelFour->show();
     ui->widget->hide();
+    ui->expectedResult->setText("Expected Result: False/Red");
     emit setAndLevel(6);
 }
 
@@ -151,6 +149,7 @@ void MainWindow::levelFour_clicked()
     // Show 'levelFive' widget, hide the main widget, and set the level to 7
     ui->levelFive->show();
     ui->widget->hide();
+    ui->expectedResult->setText("Expected Result: False/Red");
     emit setAndLevel(7);
 }
 
@@ -159,6 +158,7 @@ void MainWindow::levelFive_clicked()
     // Show 'finalTest' widget, hide the main widget, and set the level to 8
     ui->finalTest->show();
     ui->widget->hide();
+    ui->expectedResult->setText("Expected Result: False/Red");
     emit setAndLevel(8);
 }
 
@@ -166,5 +166,6 @@ void MainWindow::finalTest_clicked()
 {
     // Hide the main widget and set the level to 9
     ui->widget->hide();
+    ui->expectedResult->setText("Expected Result: False/Red");
     emit setAndLevel(9);
 }
