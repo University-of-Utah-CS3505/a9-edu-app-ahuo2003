@@ -602,9 +602,9 @@ background-color: rgb(0, 85, 127);</string>
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>230</y>
+      <y>210</y>
       <width>271</width>
-      <height>281</height>
+      <height>321</height>
      </rect>
     </property>
     <property name="font">
@@ -616,10 +616,13 @@ background-color: rgb(0, 85, 127);</string>
     <property name="text">
      <string>AND Gate: Returns True (Green) 
 	iff both inputs
-	are true
-OR Gate: Returns False (Red)
-	iff both inputs
-	are false,
+	are true,
+	ow, false
+OR Gate: Returns True (Green)
+	if both or one
+	are true. If all
+	are false then
+	return false
 	ow. true
 NOT Gate: Returns the inverse
 	of an input</string>
@@ -644,10 +647,10 @@ NOT Gate: Returns the inverse
      <string/>
     </property>
    </widget>
-   <zorder>warningMessage</zorder>
    <zorder>backGround</zorder>
-   <zorder>expectedResult</zorder>
    <zorder>guide</zorder>
+   <zorder>warningMessage</zorder>
+   <zorder>expectedResult</zorder>
    <zorder>border</zorder>
    <zorder>circuitCanvas</zorder>
    <zorder>submitTrail</zorder>
