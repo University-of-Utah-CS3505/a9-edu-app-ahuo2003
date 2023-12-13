@@ -3,10 +3,14 @@
 
 #include "Gate.h"
 
+/**
+ * @brief The Level class represents a level in the educational project, containing information
+ * about the gates and cables that exists in every level of the game.
+ */
 class Level {
 public:
   /**
-  * @brief Level Constructor for the level class
+  * @brief Level Constructor for the level class.
   */
   Level();
   ~Level();

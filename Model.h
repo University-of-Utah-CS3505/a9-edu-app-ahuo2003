@@ -14,11 +14,15 @@
 #include <QObject>
 
 /**
- * @brief The Model class
+ * @brief The Model class handles all the operations for the Educational Project to function as desired.
  */
 class Model : public QObject {
   Q_OBJECT
 public:
+  /**
+   * @brief Model constructor for the model class.
+   * @param parent nullptr.
+   */
   explicit Model(QObject *parent = nullptr);
 
 signals:
