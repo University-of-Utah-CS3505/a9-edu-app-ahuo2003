@@ -28,7 +28,7 @@ void AndGate::draw(QImage &image) {
   this->painter.begin(&image);
 
   QPen cursorPen = painter.pen();
-  cursorPen.setColor(Qt::green);
+  cursorPen.setColor(Qt::darkGreen);
   painter.setPen(cursorPen);
 
   // Get the center of the gate

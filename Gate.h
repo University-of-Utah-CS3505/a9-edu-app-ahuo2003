@@ -44,12 +44,43 @@ public:
   virtual void
   draw(QImage &image) = 0; // Pure virtual, no need implementation in Gate.cpp
 
+  /**
+   * @brief computeTruthValue computes the truth value of the gate
+   * @return the truth value, as either a true/false bool
+   */
   virtual bool computeTruthValue() const = 0;
+
+  /**
+   * @brief isConnected checks to see if the gate is connected
+   * @return the connection status, as either a true/false bool
+   */
   virtual bool isConnected() const = 0;
+
+  /**
+   * @brief addInputGate adds an input gate
+   * @param gate a pointer to the added gate
+   */
   void addInputGate(Gate* gate);
+
+  /**
+   * @brief removeInputGate removes input gate
+   * @param input a pointer to the removed gate
+   */
   void removeInputGate(Gate* input);
+
+  /**
+   * @brief getInputGates returns a list of input gates
+   * @return a QList of input gates
+   */
   const QList<Gate*>& getInputGates();
+
+  /**
+   * @brief setInputGates sets a list of input gates
+   * @param input a QList of input gates
+   */
   void setInputGates(QList<Gate*>& input);
+
+
 protected:
   int pos_x;
   int pos_y;

@@ -26,7 +26,16 @@ public:
    */
   GateType getType() const override;
 
+  /**
+   * @brief computeTruthValue compute the value of the gate
+   * @return the gate value, as a true/false variable.
+   */
   bool computeTruthValue() const override;
+
+  /**
+   * @brief isConnected checks to see if the gate is connected
+   * @return the connection status, as a true/false variable.
+   */
   bool isConnected() const override;
 
 };
