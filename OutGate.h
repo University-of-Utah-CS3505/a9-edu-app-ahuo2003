@@ -10,7 +10,7 @@
  */
 class OutGate : public Gate {
 public:
-  OutGate(int x, int y);
+  OutGate(int x, int y, bool truthValue);
   ~OutGate() override;
   QList<QPoint> outGatePixels;
   /**

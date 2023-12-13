@@ -1,6 +1,6 @@
 #include "OutGate.h"
 
-OutGate::OutGate(int x, int y) : Gate(x, y) { this->type = GateType::OUTPUT; this->output = Cable(QPoint(500,500), Qt::transparent);}
+OutGate::OutGate(int x, int y, bool truthValue) : Gate(x, y) { this->type = GateType::OUTPUT;  this->truth = truthValue; this->output = Cable(QPoint(500,500), Qt::transparent);}
 
 OutGate::~OutGate() = default;
 
@@ -35,7 +35,13 @@ void OutGate::draw(QImage &image) {
       outGatePixels.append(border);
     }
   }
-  cursorPen.setColor(Qt::red);
+
+  if (truth){
+    cursorPen.setColor(Qt::green);
+  }
+  else{
+    cursorPen.setColor(Qt::red);
+  }
   painter.setPen(cursorPen);
   painter.drawPoint(center);
 
