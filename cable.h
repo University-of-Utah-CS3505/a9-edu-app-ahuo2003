@@ -92,11 +92,9 @@ private:
    * @brief deleteFromPath removes all the points between 2 points in an image
    * if they exist in the path.
    * @param image where the line is erased.
-   * @param startPoint the starting point of a line.
-   * @param endPoint the ending point of a line.
+   * @param point where the mouse is currently at.
    */
-  void deleteFromPath(QImage &image, const QPoint &startPoint,
-                      const QPoint &endPoint);
+  void deleteFromPath(QImage &image, const QPoint &point);
 };
 
 #endif // CABLE_H

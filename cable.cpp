@@ -53,7 +53,7 @@ void Cable::mouseMoved(QImage &image, const QPoint &mouseLocation) {
       // previous pixels.
       if (path.contains(mouseLocation) &&
           (path.indexOf(mouseLocation) >= path.size() - 12)) {
-        deleteFromPath(image, *cableEndPos, mouseLocation);
+        deleteFromPath(image, mouseLocation);
       } else {
         appendToPath(image, *cableEndPos, mouseLocation);
       }
@@ -93,9 +93,8 @@ void Cable::appendToPath(QImage &image, const QPoint &startPoint,
   cableEndPos = &(path[path.size() - 1]);
 }
 
-void Cable::deleteFromPath(QImage &image, const QPoint &startPoint,
-                           const QPoint &endPoint) {
-  for (int i = path.size() - 1; i > path.indexOf(endPoint); i--) {
+void Cable::deleteFromPath(QImage &image, const QPoint &point) {
+  for (int i = path.size() - 1; i > path.indexOf(point); i--) {
     image.setPixelColor(path[i], Qt::transparent);
     path.removeAt(i);
   }
