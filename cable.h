@@ -61,6 +61,10 @@ public:
    */
   void redrawCable(QImage& image);
 
+  /**
+   * @brief changeCableColor changes the color of the cable.
+   * @param color the color to change the cable to.
+   */
   void changeCableColor(QColor color);
 
 protected:
